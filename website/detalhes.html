@@ -1,93 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>Janela de detalhes/fotografias</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="js/jquery-3.4.0.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body class="jumbotron">
-  <section class="container">
-    <div class="card h-100">
-      <div class="card-header primary  text-center">
-        <div>
-          <span class="card-title font-weight-bold text-uppercase ">Nome projeto / Data Desfile</span>
-        </div>
-
+<section class="container-fluid">
+  <div class="card h-100">
+    <div class="card-header primary  text-center">
+      <div>
+        <span class="card-title font-weight-bold text-uppercase ">Nome projeto / Data Desfile</span>
       </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-12 col-sm-3 col-md-2">
-            <span class="font-weight-bold">Turma:</span>...
-          </div>
-          <div class="col-12 col-sm-3 col-md-2">
-            <span class="font-weight-bold">Fase:</span>...
-          </div>
+
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-sm-3 col-md-2">
+          <span class="font-weight-bold">Turma:</span>...
         </div>
-        <div class="row">
-          <div class="col-12 col-sm-3 col-md-2">
-            <span class="font-weight-bold">Datas:</span>inicio/termino
-          </div>
+        <div class="col-12 col-sm-3 col-md-2">
+          <span class="font-weight-bold">Fase:</span>...
         </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-3"></div>
-            <div class="col-6">
-              <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <!-- INICIO REPETIR PARA CADA IMAGEM obs: data-slide-to pode ser o index na array de imgs-->
-                  <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
-                  <!-- FIM REPETIR PARA CADA IMAGEM -->
-                  <li data-target="#carouselIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <!-- INICIO REPETIR PARA CADA IMAGEM -->
-                  <div class="carousel-item active">
-                    <img class="d-block img-fluid" src="https://via.placeholder.com/500x500" alt="First slide">
-                  </div>
-                  <!-- FIM REPETIR PARA CADA IMAGEM -->
-                  <div class="carousel-item">
-                    <img class="d-block img-fluid" src="https://via.placeholder.com/500x500" alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block img-fluid" src="https://via.placeholder.com/500x500" alt="Third slide">
-                  </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-3 col-md-2">
+          <span class="font-weight-bold">Datas:</span>inicio/termino
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-6">
+            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <!-- INICIO REPETIR PARA CADA IMAGEM obs: data-slide-to pode ser o index na array de imgs-->
+                <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                <!-- FIM REPETIR PARA CADA IMAGEM -->
+                <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <!-- INICIO REPETIR PARA CADA IMAGEM -->
+                <div class="carousel-item active">
+                  <img class="d-block img-fluid" src="https://via.placeholder.com/500x500" alt="First slide">
                 </div>
-                <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Anterior</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Próximo</span>
-                </a>
+                <!-- FIM REPETIR PARA CADA IMAGEM -->
+                <div class="carousel-item">
+                  <img class="d-block img-fluid" src="https://via.placeholder.com/500x500" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block img-fluid" src="https://via.placeholder.com/500x500" alt="Third slide">
+                </div>
               </div>
+              <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+              </a>
             </div>
           </div>
-          <div class="row top-15">
-             <div class="col-12 text-indent-50">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pellentesque metus placerat aliquam iaculis. Aliquam iaculis placerat urna, sed interdum nulla faucibus id. Pellentesque aliquet purus sit amet tortor finibus, a hendrerit arcu malesuada. Aenean volutpat cursus ante, sed consequat quam vehicula ut. Aenean lacinia ex id nisl ornare volutpat. Mauris vitae nulla a metus pulvinar facilisis. In varius ac odio vel euismod. Nullam porttitor eget eros vitae semper. Nullam vehicula fringilla ligula, et bibendum elit pellentesque in. Vivamus eu dictum ipsum.
+        </div>
+        <div class="row top-15">
+          <div class="col-12 text-indent-50">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque pellentesque metus placerat aliquam
+              iaculis. Aliquam iaculis placerat urna, sed interdum nulla faucibus id. Pellentesque aliquet purus sit
+              amet tortor finibus, a hendrerit arcu malesuada. Aenean volutpat cursus ante, sed consequat quam vehicula
+              ut. Aenean lacinia ex id nisl ornare volutpat. Mauris vitae nulla a metus pulvinar facilisis. In varius ac
+              odio vel euismod. Nullam porttitor eget eros vitae semper. Nullam vehicula fringilla ligula, et bibendum
+              elit pellentesque in. Vivamus eu dictum ipsum.
 
-                Vestibulum maximus libero et scelerisque tincidunt.</p> <p>Pellentesque eu blandit lectus. Sed id eros eu tellus eleifend varius. Morbi ultricies malesuada ante, et venenatis neque tempus quis. Ut at blandit felis. Suspendisse consectetur, ipsum maximus ultrices consectetur, eros ipsum bibendum justo, id bibendum lacus odio nec lectus. Mauris molestie consectetur fermentum. Vestibulum eros arcu, elementum eu volutpat pellentesque, pretium eu odio.
-                
-                Proin a mauris tempus, ultricies turpis auctor, laoreet leo. </p> <p>Fusce hendrerit justo vitae magna dignissim, vel rhoncus metus dignissim. In fermentum iaculis justo, quis hendrerit leo venenatis non. Nulla facilisi. Morbi et turpis varius, fringilla diam congue, auctor est. Sed dignissim neque at quam facilisis, in mattis turpis tincidunt. Donec gravida faucibus dui, nec lobortis massa facilisis non. Pellentesque commodo felis vitae laoreet pellentesque. Maecenas vel neque nec purus fermentum viverra eu non nibh. Donec consectetur lorem sapien, quis lacinia est pulvinar id.
-                
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed pretium metus rhoncus mi lacinia, eget interdum nisl fermentum. Quisque ac ipsum orci. Donec et justo velit. Cras suscipit urna ut urna pretium tincidunt. Morbi mollis mi vel dolor eleifend pharetra. Aenean in tortor gravida, maximus lacus dignissim, feugiat justo.
-                
-                Aenean faucibus est neque. Quisque nisl dui, elementum sed mi nec, imperdiet maximus ligula. Vestibulum pellentesque faucibus metus commodo tempus. Phasellus tellus arcu, facilisis quis tristique eget, convallis nec orci. Nullam a velit volutpat, tincidunt metus ut, interdum ex. Vestibulum pharetra sem nibh, ac rhoncus nulla placerat at. Sed pharetra tellus vel ipsum congue, sit amet vehicula mauris eleifend. Cras elementum libero ipsum, vitae blandit eros dapibus ut.</p> 
-             </div>
+              Vestibulum maximus libero et scelerisque tincidunt.</p>
+            <p>Pellentesque eu blandit lectus. Sed id eros eu tellus eleifend varius. Morbi ultricies malesuada ante, et
+              venenatis neque tempus quis. Ut at blandit felis. Suspendisse consectetur, ipsum maximus ultrices
+              consectetur, eros ipsum bibendum justo, id bibendum lacus odio nec lectus. Mauris molestie consectetur
+              fermentum. Vestibulum eros arcu, elementum eu volutpat pellentesque, pretium eu odio.
+
+              Proin a mauris tempus, ultricies turpis auctor, laoreet leo. </p>
+            <p>Fusce hendrerit justo vitae magna dignissim, vel rhoncus metus dignissim. In fermentum iaculis justo,
+              quis hendrerit leo venenatis non. Nulla facilisi. Morbi et turpis varius, fringilla diam congue, auctor
+              est. Sed dignissim neque at quam facilisis, in mattis turpis tincidunt. Donec gravida faucibus dui, nec
+              lobortis massa facilisis non. Pellentesque commodo felis vitae laoreet pellentesque. Maecenas vel neque
+              nec purus fermentum viverra eu non nibh. Donec consectetur lorem sapien, quis lacinia est pulvinar id.
+
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed pretium
+              metus rhoncus mi lacinia, eget interdum nisl fermentum. Quisque ac ipsum orci. Donec et justo velit. Cras
+              suscipit urna ut urna pretium tincidunt. Morbi mollis mi vel dolor eleifend pharetra. Aenean in tortor
+              gravida, maximus lacus dignissim, feugiat justo.
+
+              Aenean faucibus est neque. Quisque nisl dui, elementum sed mi nec, imperdiet maximus ligula. Vestibulum
+              pellentesque faucibus metus commodo tempus. Phasellus tellus arcu, facilisis quis tristique eget,
+              convallis nec orci. Nullam a velit volutpat, tincidunt metus ut, interdum ex. Vestibulum pharetra sem
+              nibh, ac rhoncus nulla placerat at. Sed pharetra tellus vel ipsum congue, sit amet vehicula mauris
+              eleifend. Cras elementum libero ipsum, vitae blandit eros dapibus ut.</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-</body>
-
-</html>
+  </div>
+</section>
