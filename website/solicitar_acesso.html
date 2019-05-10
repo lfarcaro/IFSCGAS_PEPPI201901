@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- As 3 meta tags acima *devem* vir em primeiro lugar dentro do `head`; qualquer outro conteúdo deve vir *após* essas tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <div class="container">  
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalSolicitarAcesso" data-whatever="@mdo">Solicitar Acesso</button>
+       
+           <div class="modal fade" id="modalSolicitarAcesso" tabindex="-1" role="dialog" aria-labelledby="modalSolicitarAcessoLabel" aria-hidden="true">
+             <div class="modal-dialog modal-lg" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="modalSolicitarAcessoLabel">Solicitar Acesso</h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body">
+                    <h6>Informe seus dados para solicitar acesso ao sistema</h6><br>         
+                    <form>
+                     <div class="form-group row">
+                       <label for="labelEmail" class="col-sm-4 col-form-label">E-mail</label>
+                       <input type="text" class="col-sm-7 form-control" id="inputEmail">
+                     </div>
+                     <div class="form-group row">
+                        <label for="labelSenha" class="col-sm-4 col-form-label">Senha</label>
+                        <input type="password" class="col-sm-5 form-control" id="inputSenha" placeholder="Senha">
+                     </div>
+                     <div class="form-group row">
+                        <label for="labelConfirmaSenha" class="col-sm-4 col-form-label">Confirme a Senha</label>
+                        <input type="password" class="col-sm-5 form-control" id="inputConfirmaSenha" placeholder="Senha">
+                     </div>
+                     <div class="form-group row">
+                       <label for="labelNome" class="col-sm-4 col-form-label">Nome Completo</label>
+                       <input type="text" class="col-sm-7 form-control" id="inputNome">
+                     </div>    
+                      <div class="form-group row">
+                       <label for="labelTelefone" class="col-sm-4 col-form-label">Telefone</label>
+                       <input type="text" class="col-sm-7 form-control" id="inputTelefone" placeholder="(__)____-____">
+                     </div>        
+                     <div class="form-group row">
+                       <label for="labelCelular" class="col-sm-4 col-form-label">Celular</label>
+                       <input type="text" class="col-sm-7 form-control" id="inputCelular" placeholder="(__)_____-____">
+                     </div>   
+                     <div class="form-group row">
+                       <label for="labelCurso" class="col-sm-4 col-form-label">Curso</label>
+                       <input type="text" class="col-sm-7 form-control" id="inputCurso">
+                     </div>     
+                     <div class="form-group row">
+                       <label for="labelFase" class="col-sm-4 col-form-label">Fase</label>
+                       <input type="text" class="col-sm-7 form-control" id="inputFase">
+                     </div>         
+                   </form>
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                   <button type="button" class="btn btn-primary">Enviar</button>
+                 </div>
+               </div>
+             </div>
+          </div>  
+      </div>    
+  </body>
+</html>
