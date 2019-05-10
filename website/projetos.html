@@ -44,7 +44,7 @@
             </div>  
           </div>
           <div class="card-footer">
-            <a href="#IdDoProjeto" class="btn btn-primary float-right">Detalhes</a>
+            <a href="#IdDoProjeto1" data-toggle="modal" data-target="#detail-modal" class="btn btn-primary float-right load-project">Detalhes</a>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ Aenean faucibus est neque. Quisque nisl dui, elementum sed mi nec, imperdiet max
             </div>  
           </div>
           <div class="card-footer">
-            <a href="#LinkProDetalhePassandoIDdoProjeto" class="btn btn-primary float-right">Detalhes</a>
+            <a href="#IdDoProjeto2" data-toggle="modal" data-target="#detail-modal" class="btn btn-primary float-right load-project">Detalhes</a>
           </div>
           
         </div>
@@ -90,21 +90,14 @@ Aenean faucibus est neque. Quisque nisl dui, elementum sed mi nec, imperdiet max
   </section>
 
   <!-- MODAL DETALHES-->
-  <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="detail-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
+          
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
         </div>
       </div>
     </div>

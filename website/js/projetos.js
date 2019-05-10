@@ -1,11 +1,9 @@
 (($) => {
     $(document).ready(() => {
-        const modal = $('#detail-modal');
+        const content = $('#detail-modal .modal-body');
 
-        $(".some-action-class").on('click', function () {
-            $('#detail-modal').removeData('bs.modal');
-            $('#detail-modal').modal({remote: 'some/new/context?p=' + $(this).attr('buttonAttr') });
-            $('#myModal').modal('show');
+        $(".load-project").on('click', function () {
+            content.load('detalhes.html?id='+ $(this).attr('href').replace('#',''));
         });
     })
 })(jQuery)
