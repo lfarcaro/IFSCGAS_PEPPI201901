@@ -9,3 +9,12 @@
 .text-indent-50{
     text-indent: 50px;
 }
+.text-center{
+	font-weight: bold;
+}
+.table-bordered{
+	text-align: center;
+}
+.alinhamentotopo{
+	margin-top: 130px;
+}
