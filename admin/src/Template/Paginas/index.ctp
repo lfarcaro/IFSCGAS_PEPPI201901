@@ -5,10 +5,6 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Acoes') ?></li>
-        <li><?= $this->Html->link(__('Nova Pagina'), ['action' => 'add']) ?></li>
-    </ul>
 </nav>
 <div class="paginas index large-9 medium-8 columns content">
     <h3><?= __('Paginas') ?></h3>
@@ -28,9 +24,8 @@
                 <td><?= h($pagina->identificador) ?></td>
                 <td><?= h($pagina->nome) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $pagina->id]) ?>
+                     <?= $this->Html->link(__('View'), ['action' => 'view', $pagina->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $pagina->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $pagina->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pagina->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

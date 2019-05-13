@@ -24,21 +24,6 @@ class DesignersController extends AppController
         $this->set(compact('designers'));
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Designer id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $designer = $this->Designers->get($id, [
-            'contain' => ['Artigos']
-        ]);
-
-        $this->set('designer', $designer);
-    }
 
     /**
      * Add method
@@ -50,15 +35,26 @@ class DesignersController extends AppController
         $designer = $this->Designers->newEntity();
         if ($this->request->is('post')) {
             $designer = $this->Designers->patchEntity($designer, $this->request->getData());
+
             $designer->inscricao= time();
             $designer->atualizacao= time();
             $designer->aprovado=true;
-            if ($this->Designers->save($designer)) {
-                $this->Flash->success(__('The designer has been saved.'));
+            $senha =$this->request->getData('senha');
+            $confirmacaoSenha =$this->request->getData('confirmacao_senha');
+            if($senha === $confirmacaoSenha){
+                var_dump($senha);
+                $designer->senha=$this->request->getData('senha');
+                if ($this->Designers->save($designer)) {
+                    $this->Flash->success(__('Design salvo com sucesso!'));
 
-                return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['action' => 'index']);
+                 }else{
+                     $this->Flash->error(__('O design não pode ser salvo. Por favor, tente novamente.'));
+                 }
+            }else{
+                $this->Flash->error(__('As senhas não conferem!'));
             }
-            $this->Flash->error(__('The designer could not be saved. Please, try again.'));
+           
         }
         $this->set(compact('designer'));
     }

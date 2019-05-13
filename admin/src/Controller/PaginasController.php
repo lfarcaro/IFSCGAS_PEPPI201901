@@ -40,25 +40,7 @@ class PaginasController extends AppController
         $this->set('pagina', $pagina);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $pagina = $this->Paginas->newEntity();
-        if ($this->request->is('post')) {
-            $pagina = $this->Paginas->patchEntity($pagina, $this->request->getData());
-            if ($this->Paginas->save($pagina)) {
-                $this->Flash->success(__('The pagina has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The pagina could not be saved. Please, try again.'));
-        }
-        $this->set(compact('pagina'));
-    }
+    
 
     /**
      * Edit method
@@ -84,23 +66,5 @@ class PaginasController extends AppController
         $this->set(compact('pagina'));
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Pagina id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $pagina = $this->Paginas->get($id);
-        if ($this->Paginas->delete($pagina)) {
-            $this->Flash->success(__('The pagina has been deleted.'));
-        } else {
-            $this->Flash->error(__('The pagina could not be deleted. Please, try again.'));
-        }
-
-        return $this->redirect(['action' => 'index']);
-    }
+ 
 }
