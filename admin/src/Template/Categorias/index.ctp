@@ -6,6 +6,7 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
+		<li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Nova Categoria'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('Listar Artigos'), ['controller' => 'Artigos', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('Novo Artigo'), ['controller' => 'Artigos', 'action' => 'add']) ?></li>
@@ -18,6 +19,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('descricao') ?></th>
+				<th scope="col"><?= $this->Paginator->sort('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
