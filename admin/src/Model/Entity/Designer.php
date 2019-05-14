@@ -39,7 +39,7 @@ class Designer extends Entity
         'senha' => false,
         'aprovado' => true,
         'nome' => true,
-        'email' => true,
+        'email' => false,
         'telefone' => true,
         'celular' => true,
         'celular_whatsapp' => true,
