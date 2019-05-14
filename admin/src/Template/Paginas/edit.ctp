@@ -23,3 +23,13 @@
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
+<script>
+            $(function () {
+                var editor = new Jodit("#conteudo", {
+              "language": "pt_br",
+              "defaultMode": "1",
+              "buttons": "|,bold,underline,italic,|,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,image,file,video,table,link,|,align,undo,redo,\n,eraser,|,symbol,fullsize,selectall,print"
+              });
+            });
+            
+        </script>
