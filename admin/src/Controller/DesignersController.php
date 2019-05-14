@@ -41,7 +41,7 @@ class DesignersController extends AppController
             $designer->aprovado=true;
             $senha =$this->request->getData('senha');
             $confirmacaoSenha =$this->request->getData('confirmacao_senha');
-            if($senha === $confirmacaoSenha){
+            if($senha === $confirmacaoSenha && ($senha !=="" && $senha!=="")){
                 var_dump($senha);
                 $designer->senha=$this->request->getData('senha');
                 if ($this->Designers->save($designer)) {
