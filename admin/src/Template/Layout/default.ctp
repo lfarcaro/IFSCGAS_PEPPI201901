@@ -28,10 +28,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
+    <?= $this->Html->css('jodit.min.css') ?>
+    <?= $this->Html->script('jodit.min.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+
+
 </head>
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">

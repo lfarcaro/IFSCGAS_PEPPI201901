@@ -47,7 +47,10 @@ class DesignersController extends AppController
                 if ($this->Designers->save($designer)) {
                     $this->Flash->success(__('Design salvo com sucesso!'));
 
-                return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['action' => 'index']);
+                }
+            }else{
+                $this->Flash->error(__('Senhas não conferem'));
             }
             $this->Flash->error(__('The designer could not be saved. Please, try again.'));
         }
