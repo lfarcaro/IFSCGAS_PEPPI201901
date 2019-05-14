@@ -49,7 +49,7 @@ class Designer extends Entity
         'fase' => true,
         'apresentacao_breve' => true,
         'apresentacao_detalhada' => true,
-        'caminho_fotografia' => true,
+        'caminho_fotografia' => false,
         'artigos' => true
     ];
 }
