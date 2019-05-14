@@ -19,7 +19,8 @@
         <?php
             echo $this->Form->control('nome');
             echo $this->Form->control('email');
-            echo $this->Form->control('senha',['type'=>'password']);
+            echo $this->Form->control('senha',['type'=>'password', 'required'=>true]);
+            echo $this->Form->control('confirmacao_senha',['type'=>'password', 'required'=>true]);
             echo $this->Form->control('telefone');
             echo $this->Form->control('celular');
             echo $this->Form->control('celular_whatsapp');
