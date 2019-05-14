@@ -10,7 +10,7 @@
         <li><?= $this->Form->postLink(
                 __('Deletar'),
                 ['action' => 'delete', $designer->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $designer->id)]
+                ['confirm' => __('Você quer deletar: "{0}"?', $designer->nome)]
             )
         ?></li>
         <li><?= $this->Html->link(__('Listar Designers'), ['action' => 'index']) ?></li>
