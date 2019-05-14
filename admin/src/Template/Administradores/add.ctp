@@ -15,7 +15,8 @@
     <fieldset>
         <legend><?= __('Add Administrador') ?></legend>
         <?php
-            echo $this->Form->control('senha');
+            echo $this->Form->control('senha1',['required' => true, 'type' => 'password']);
+            echo $this->Form->control('senha2',['required' => true, 'type' => 'password']);
             echo $this->Form->control('nome');
             echo $this->Form->control('email');
             echo $this->Form->control('recebe_contato');

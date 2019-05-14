@@ -24,7 +24,7 @@ class Administrador extends Entity
      * @var array
      */
     protected $_accessible = [
-        'senha' => true,
+        'senha' => false,
         'nome' => true,
         'email' => true,
         'recebe_contato' => true

@@ -50,13 +50,20 @@ class AdministradoresController extends AppController
         $administrador = $this->Administradores->newEntity();
         if ($this->request->is('post')) {
             $administrador = $this->Administradores->patchEntity($administrador, $this->request->getData());
-            if ($this->Administradores->save($administrador)) {
-                $this->Flash->success(__('The administrador has been saved.'));
+            
+            if ($this->request->getData('senha1') == $this->request->getData('senha2')){
+                $administrador->senha = $this->request->getData('senha1');
+                if ($this->Administradores->save($administrador)) {
+                    $this->Flash->success(__('The administrador has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The administrador could not be saved. Please, try again.'));     
+            }else{
+                $this->Flash->error(__('As senhas não coincidem.'));
             }
-            $this->Flash->error(__('The administrador could not be saved. Please, try again.'));
         }
+            
         $this->set(compact('administrador'));
     }
 
@@ -74,12 +81,32 @@ class AdministradoresController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $administrador = $this->Administradores->patchEntity($administrador, $this->request->getData());
-            if ($this->Administradores->save($administrador)) {
-                $this->Flash->success(__('The administrador has been saved.'));
+            
+            if (($this->request->getData('senha1') != "") || ($this->request->getData('senha2') != ""){
+              if ($this->request->getData('senha1') == $this->request->getData('senha2')){
+                $administrador->senha = $this->request->getData('senha1');
+                
+                if ($this->Administradores->save($administrador)) {
+                    $this->Flash->success(__('The administrador has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['action' => 'index']);
+                }
+                 $this->Flash->error(__('The administrador could not be saved. Please, try again.'));     
+              } else {
+                 $this->Flash->error(__('As senhas não coincidem.'));
+              }
+
             }
-            $this->Flash->error(__('The administrador could not be saved. Please, try again.'));
+
+
+            if ($salvar == true){
+                if ($this->Administradores->save($administrador)) {
+                    $this->Flash->success(__('The administrador has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                 }
+                $this->Flash->error(__('The administrador could not be saved. Please, try again.'));
+            }
         }
         $this->set(compact('administrador'));
     }
