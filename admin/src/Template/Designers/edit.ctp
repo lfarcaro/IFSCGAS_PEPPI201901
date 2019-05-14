@@ -19,7 +19,7 @@
     </ul>
 </nav>
 <div class="designers form large-9 medium-8 columns content">
-    <?= $this->Form->create($designer) ?>
+    <?= $this->Form->create($designer, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Editar Designer') ?></legend>
         <?php
@@ -35,7 +35,7 @@
             echo $this->Form->control('fase');
             echo $this->Form->control('apresentacao_breve');
             echo $this->Form->control('apresentacao_detalhada');
-            echo $this->Form->control('caminho_fotografia');
+			echo $this->Form->control('fotografia',['type' => 'file']);
         ?>
     </fieldset>
 	<script>
