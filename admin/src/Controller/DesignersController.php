@@ -72,6 +72,8 @@ class DesignersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $designer = $this->Designers->patchEntity($designer, $this->request->getData());
 			
+			
+			
 			$salvar = true;
 			
 			if(($this->request->getData('senha1') != "") || ($this->request->getData('senha2') != "")){
