@@ -8,6 +8,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Categoria'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Artigos'), ['controller' => 'Artigos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Artigo'), ['controller' => 'Artigos', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="categorias index large-9 medium-8 columns content">
@@ -15,7 +17,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('descricao') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -24,13 +25,11 @@
         <tbody>
             <?php foreach ($categorias as $categoria): ?>
             <tr>
-                <td><?= $this->Number->format($categoria->id) ?></td>
                 <td><?= h($categoria->nome) ?></td>
                 <td><?= h($categoria->descricao) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $categoria->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $categoria->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $categoria->id], ['confirm' => __('Are you sure you want to delete # {0}?', $categoria->id)]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $categoria->id], ['confirm' => __('Are you sure you want to delete # {0}?', $categoria->nome)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

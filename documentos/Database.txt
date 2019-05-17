@@ -16,9 +16,3 @@ PE_PPI_201901
 
 Senha:
 P3PPi201901
-
-Afazeres:
-- Trocar colunas TEXT de editores WYSIWYG para LONGTEXT
-- Trocar colunas senha de 32 para 60 caracteres (MD5 -> BCrypt)
-- Remover colunas login, pois utilizaremos o e-mail como login
-- Criar chave única nos e-mails dos designers e dos administradores

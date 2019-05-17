@@ -11,6 +11,7 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/projetos.js"></script>
 </head>
 
 <body class="h-100">
@@ -43,7 +44,7 @@
             </div>  
           </div>
           <div class="card-footer">
-            <a href="#LinkProDetalhePassandoIDdoProjeto" class="btn btn-primary float-right">Detalhes</a>
+            <a href="#IdDoProjeto1" data-toggle="modal" data-target="#detail-modal" class="btn btn-primary float-right load-project">Detalhes</a>
           </div>
         </div>
       </div>
@@ -80,13 +81,27 @@ Aenean faucibus est neque. Quisque nisl dui, elementum sed mi nec, imperdiet max
             </div>  
           </div>
           <div class="card-footer">
-            <a href="#LinkProDetalhePassandoIDdoProjeto" class="btn btn-primary float-right">Detalhes</a>
+            <a href="#IdDoProjeto2" data-toggle="modal" data-target="#detail-modal" class="btn btn-primary float-right load-project">Detalhes</a>
           </div>
           
         </div>
       </div>
     </div>
   </section>
+
+  <!-- MODAL DETALHES-->
+  <div class="modal fade" id="detail-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Categorias Model
  *
+ * @property |\Cake\ORM\Association\HasMany $Artigos
+ *
  * @method \App\Model\Entity\Categoria get($primaryKey, $options = [])
  * @method \App\Model\Entity\Categoria newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Categoria[] newEntities(array $data, array $options = [])
@@ -33,6 +35,10 @@ class CategoriasTable extends Table
         $this->setTable('categorias');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Artigos', [
+            'foreignKey' => 'categoria_id'
+        ]);
     }
 
     /**

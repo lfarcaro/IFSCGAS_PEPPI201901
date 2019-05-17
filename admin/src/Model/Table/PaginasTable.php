@@ -62,6 +62,7 @@ class PaginasTable extends Table
 
         $validator
             ->scalar('conteudo')
+            ->maxLength('conteudo', 4294967295)
             ->requirePresence('conteudo', 'create')
             ->allowEmptyString('conteudo', false);
 
