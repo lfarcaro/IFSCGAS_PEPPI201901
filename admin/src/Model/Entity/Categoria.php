@@ -9,8 +9,6 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $nome
  * @property string $descricao
- *
- * @property \App\Model\Entity\Artigo[] $artigos
  */
 class Categoria extends Entity
 {
@@ -25,6 +23,6 @@ class Categoria extends Entity
      */
     protected $_accessible = [
         'nome' => true,
-        'descricao' => true,
+        'descricao' => true
     ];
 }

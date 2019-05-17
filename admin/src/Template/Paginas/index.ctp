@@ -5,6 +5,9 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+    </ul>
 </nav>
 <div class="paginas index large-9 medium-8 columns content">
     <h3><?= __('Paginas') ?></h3>
@@ -24,7 +27,7 @@
                 <td><?= h($pagina->identificador) ?></td>
                 <td><?= h($pagina->nome) ?></td>
                 <td class="actions">
-                     <?= $this->Html->link(__('View'), ['action' => 'view', $pagina->id]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $pagina->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $pagina->id]) ?>
                 </td>
             </tr>

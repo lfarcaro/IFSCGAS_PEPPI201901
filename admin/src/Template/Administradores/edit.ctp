@@ -21,8 +21,8 @@
     <fieldset>
         <legend><?= __('Edit Administrador') ?></legend>
         <?php
-            echo $this->Form->control('senha1',['type' => 'password']);
-            echo $this->Form->control('senha2',['true, 'type' => 'password']);
+            echo $this->Form->control('senha1', ['type' => 'password']);
+            echo $this->Form->control('senha2', ['type' => 'password']);
             echo $this->Form->control('nome');
             echo $this->Form->control('email');
             echo $this->Form->control('recebe_contato');

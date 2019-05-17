@@ -6,27 +6,27 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-		<li class="heading"><?= __('Actions') ?></li>
+        <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
-                __('Deletar'),
+                __('Delete'),
                 ['action' => 'delete', $categoria->id],
-                ['confirm' => __('Você tem certeza que quer deletar "{0}"?', $categoria->nome)]
+                ['confirm' => __('Are you sure you want to delete # {0}?', $categoria->nome)]
             )
         ?></li>
-        <li><?= $this->Html->link(__('Listar Categorias'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Listar Artigos'), ['controller' => 'Artigos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Novo Artigo'), ['controller' => 'Artigos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Categorias'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Artigos'), ['controller' => 'Artigos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Artigo'), ['controller' => 'Artigos', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="categorias form large-9 medium-8 columns content">
     <?= $this->Form->create($categoria) ?>
     <fieldset>
-        <legend><?= __('Editar Categoria') ?></legend>
+        <legend><?= __('Edit Categoria') ?></legend>
         <?php
             echo $this->Form->control('nome');
             echo $this->Form->control('descricao');
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Salvar')) ?>
+    <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>

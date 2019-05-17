@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Categorias Model
  *
- * @property \App\Model\Table\ArtigosTable|\Cake\ORM\Association\HasMany $Artigos
+ * @property |\Cake\ORM\Association\HasMany $Artigos
  *
  * @method \App\Model\Entity\Categoria get($primaryKey, $options = [])
  * @method \App\Model\Entity\Categoria newEntity($data = null, array $options = [])

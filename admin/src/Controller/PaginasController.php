@@ -40,8 +40,6 @@ class PaginasController extends AppController
         $this->set('pagina', $pagina);
     }
 
-    
-
     /**
      * Edit method
      *
@@ -65,6 +63,4 @@ class PaginasController extends AppController
         }
         $this->set(compact('pagina'));
     }
-
- 
 }

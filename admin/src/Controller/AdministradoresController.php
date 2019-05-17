@@ -63,7 +63,6 @@ class AdministradoresController extends AppController
                 $this->Flash->error(__('As senhas não coincidem.'));
             }
         }
-            
         $this->set(compact('administrador'));
     }
 
