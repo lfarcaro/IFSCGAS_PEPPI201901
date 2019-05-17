@@ -81,7 +81,7 @@ class AdministradoresController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $administrador = $this->Administradores->patchEntity($administrador, $this->request->getData());
             
-            if (($this->request->getData('senha1') != "") || ($this->request->getData('senha2') != ""){
+            if (($this->request->getData('senha1') != "") || ($this->request->getData('senha2') != "")){
               if ($this->request->getData('senha1') == $this->request->getData('senha2')){
                 $administrador->senha = $this->request->getData('senha1');
                 
