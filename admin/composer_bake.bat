@@ -1,4 +1,4 @@
-%REM SET PATH=%PATH%;C:\xampp\php
+SET PATH=%PATH%;C:\xampp\php
 %REM call bin\cake bake all categorias --force
 %REM call bin\cake bake all administradores --force
 %REM call bin\cake bake all designers --force
