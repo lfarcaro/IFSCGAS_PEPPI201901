@@ -19,7 +19,7 @@
     </ul>
 </nav>
 <div class="desfiles form large-9 medium-8 columns content">
-    <?= $this->Form->create($desfile) ?>
+    <?= $this->Form->create($desfile, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Edit Desfile') ?></legend>
         <?php
@@ -27,9 +27,19 @@
             echo $this->Form->control('turma');
             echo $this->Form->control('descricao_breve');
             echo $this->Form->control('descricao_detalhada');
-            echo $this->Form->control('caminho_capa');
+            echo $this->Form->control('fotografia', ['type' => 'file']);
         ?>
     </fieldset>
+    <script>
+            $(function () {
+                var editor = new Jodit("#descricao-detalhada", {
+              "language": "pt_br",
+              "defaultMode": "1",
+              "buttons": "|,bold,underline,italic,|,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,image,file,video,table,link,|,align,undo,redo,\n,eraser,|,symbol,fullsize,selectall,print"
+              });
+            });
+            
+    </script>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>

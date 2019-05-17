@@ -25,22 +25,6 @@ class DesignersController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Designer id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $designer = $this->Designers->get($id, [
-            'contain' => ['Artigos']
-        ]);
-
-        $this->set('designer', $designer);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
@@ -50,13 +34,23 @@ class DesignersController extends AppController
         $designer = $this->Designers->newEntity();
         if ($this->request->is('post')) {
             $designer = $this->Designers->patchEntity($designer, $this->request->getData());
+			$designer->email=$this->request->getData('email');
             $designer->inscricao= time();
             $designer->atualizacao= time();
             $designer->aprovado=true;
-            if ($this->Designers->save($designer)) {
-                $this->Flash->success(__('The designer has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            $senha =$this->request->getData('senha');
+            $confirmacaoSenha =$this->request->getData('confirmacao_senha');
+            if($senha === $confirmacaoSenha && ($senha !=="" && $senha!=="")){
+                var_dump($senha);
+                $designer->senha=$this->request->getData('senha');
+                if ($this->Designers->save($designer)) {
+                    $this->Flash->success(__('Design salvo com sucesso!'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+            }else{
+                $this->Flash->error(__('Senhas não conferem'));
             }
             $this->Flash->error(__('The designer could not be saved. Please, try again.'));
         }
@@ -77,14 +71,29 @@ class DesignersController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $designer = $this->Designers->patchEntity($designer, $this->request->getData());
-            $designer->atualizacao= time();
-            if ($this->Designers->save($designer)) {
-                $this->Flash->success(__('The designer has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The designer could not be saved. Please, try again.'));
-        }
+			
+			
+			
+			$salvar = true;
+			
+			if(($this->request->getData('senha1') != "") || ($this->request->getData('senha2') != "")){
+				if($this->request->getData('senha1') == $this->request->getData('senha2')){
+					$designer->senha = $this->request->getData('senha1');
+				}else{
+					$this->Flash->error(__('As senhas não coincidem'));
+					$salvar = false;
+				}
+			}
+			
+			if($salvar==true){
+				$designer->atualizacao= time();
+					if ($this->Designers->save($designer)) {
+					$this->Flash->success(__('Edição do Designer foi salva'));
+						return $this->redirect(['action' => 'index']);
+					}
+					$this->Flash->error(__('Não pode ser salvo. Por favor tente novamente'));
+			}
+		}
         $this->set(compact('designer'));
     }
 

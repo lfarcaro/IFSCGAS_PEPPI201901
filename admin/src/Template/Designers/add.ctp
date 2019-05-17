@@ -13,13 +13,14 @@
     </ul>
 </nav>
 <div class="designers form large-9 medium-8 columns content">
-    <?= $this->Form->create($designer) ?>
+    <?= $this->Form->create($designer,['type'=>'file']) ?>
     <fieldset>
         <legend><?= __('Add Designer') ?></legend>
         <?php
             echo $this->Form->control('nome');
             echo $this->Form->control('email');
-            echo $this->Form->control('senha',['type'=>'password']);
+            echo $this->Form->control('senha',['type'=>'password', 'required'=>true]);
+            echo $this->Form->control('confirmacao_senha',['type'=>'password', 'required'=>true]);
             echo $this->Form->control('telefone');
             echo $this->Form->control('celular');
             echo $this->Form->control('celular_whatsapp');
@@ -27,9 +28,20 @@
             echo $this->Form->control('fase');
             echo $this->Form->control('apresentacao_breve');
             echo $this->Form->control('apresentacao_detalhada');
-            echo $this->Form->control('caminho_fotografia');
+            echo $this->Form->control('fotografia',['type'=>'file']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
+
+<script>
+            $(function () {
+                var editor = new Jodit("#apresentacao-detalhada", {
+              "language": "pt_br",
+              "defaultMode": "1",
+              "buttons": "|,bold,underline,italic,|,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,image,file,video,table,link,|,align,undo,redo,\n,eraser,|,symbol,fullsize,selectall,print"
+              });
+            });
+            
+        </script>

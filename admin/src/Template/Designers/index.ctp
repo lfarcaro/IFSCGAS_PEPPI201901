@@ -37,7 +37,7 @@
                 <td><?= h($designer->fase) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Editar'), ['action' => 'edit', $designer->id]) ?>
-                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $designer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $designer->id)]) ?>
+                    <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $designer->id], ['confirm' => __('Você quer deletar: "{0}"?',$designer->nome)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

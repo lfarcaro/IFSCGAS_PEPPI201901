@@ -31,7 +31,7 @@ class Desfile extends Entity
         'turma' => true,
         'descricao_breve' => true,
         'descricao_detalhada' => true,
-        'caminho_capa' => true,
+        'caminho_capa' => false,
         'desfile_fotografias' => true
     ];
 }

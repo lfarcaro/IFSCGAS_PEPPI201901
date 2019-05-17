@@ -39,7 +39,7 @@ class Designer extends Entity
         'senha' => false,
         'aprovado' => true,
         'nome' => true,
-        'email' => true,
+        'email' => false,
         'telefone' => true,
         'celular' => true,
         'celular_whatsapp' => true,
@@ -49,7 +49,7 @@ class Designer extends Entity
         'fase' => true,
         'apresentacao_breve' => true,
         'apresentacao_detalhada' => true,
-        'caminho_fotografia' => true,
+        'caminho_fotografia' => false,
         'artigos' => true
     ];
 }
