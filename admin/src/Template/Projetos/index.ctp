@@ -7,9 +7,9 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Projeto'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Projeto Fotografias'), ['controller' => 'ProjetoFotografias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Projeto Fotografia'), ['controller' => 'ProjetoFotografias', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Novo Projeto'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Lista de Projetos de Fotografias'), ['controller' => 'ProjetoFotografias', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Projeto de Fotografia'), ['controller' => 'ProjetoFotografias', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="projetos index large-9 medium-8 columns content">
@@ -17,7 +17,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('turma') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('fase') ?></th>
@@ -31,7 +30,6 @@
         <tbody>
             <?php foreach ($projetos as $projeto): ?>
             <tr>
-                <td><?= $this->Number->format($projeto->id) ?></td>
                 <td><?= h($projeto->nome) ?></td>
                 <td><?= h($projeto->turma) ?></td>
                 <td><?= h($projeto->fase) ?></td>
@@ -40,7 +38,6 @@
                 <td><?= h($projeto->descricao_breve) ?></td>
                 <td><?= h($projeto->caminho_capa) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $projeto->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $projeto->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $projeto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $projeto->id)]) ?>
                 </td>
