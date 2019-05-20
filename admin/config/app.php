@@ -385,6 +385,6 @@ return [
     ],
 	
 	'Uploads' => [
-		'designers_fotografias' => 'C:\\xampp\\htdocs\\IFSCGAS_PEPPI201901\\website\\img\\Foto\\BLA'
+		'imagens' => 'C:/xampp/htdocs/IFSCGAS_PEPPI201901/website/img/'
 		]
 ];

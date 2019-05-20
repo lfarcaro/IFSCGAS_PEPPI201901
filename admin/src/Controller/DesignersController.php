@@ -82,7 +82,7 @@ class DesignersController extends AppController
 				}
 			}
 			
-			$uploadfile = Configure::read('Uploads.designers_fotografias') . 'foto.png';
+			$uploadfile = Configure::read('Uploads.imagens') . 'fotografias/designers/' . $designer->id . '.' . pathinfo($_FILES['fotografia']['name'], PATHINFO_EXTENSION);
 			
 			if(move_uploaded_file($_FILES['fotografia']['tmp_name'],$uploadfile)){
 				echo "Arquivo recebido com sucesso.\n";
