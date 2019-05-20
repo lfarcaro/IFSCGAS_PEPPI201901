@@ -90,9 +90,6 @@ class DesignersController extends AppController
 				echo "Erro ao receber arquivo!\n";
 			}
 			
-			var_dump($_FILES);
-			die;
-			
 			if($salvar==true){
 				$designer->atualizacao = time();
 				if ($this->Designers->save($designer)) {
