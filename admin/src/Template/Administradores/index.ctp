@@ -15,8 +15,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('senha') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('recebe_contato') ?></th>
@@ -26,13 +24,10 @@
         <tbody>
             <?php foreach ($administradores as $administrador): ?>
             <tr>
-                <td><?= $this->Number->format($administrador->id) ?></td>
-                <td><?= h($administrador->senha) ?></td>
                 <td><?= h($administrador->nome) ?></td>
                 <td><?= h($administrador->email) ?></td>
                 <td><?= h($administrador->recebe_contato) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $administrador->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $administrador->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $administrador->id], ['confirm' => __('Are you sure you want to delete # {0}?', $administrador->id)]) ?>
                 </td>

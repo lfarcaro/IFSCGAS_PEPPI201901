@@ -25,22 +25,6 @@ class AdministradoresController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Administrador id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $administrador = $this->Administradores->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('administrador', $administrador);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
