@@ -25,22 +25,6 @@ class ProjetosController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Projeto id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $projeto = $this->Projetos->get($id, [
-            'contain' => ['ProjetoFotografias']
-        ]);
-
-        $this->set('projeto', $projeto);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
