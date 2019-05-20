@@ -383,4 +383,8 @@ return [
     'Session' => [
         'defaults' => 'php',
     ],
+	
+	'Uploads' => [
+		'designers_fotografias' => 'C:\\xampp\\htdocs\\IFSCGAS_PEPPI201901\\website\\img\\Foto\\BLA'
+		]
 ];

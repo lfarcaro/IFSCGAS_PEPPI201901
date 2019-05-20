@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Core\Configure;
 /**
  * Designers Controller
  *
@@ -81,7 +81,18 @@ class DesignersController extends AppController
 					$salvar = false;
 				}
 			}
-
+			
+			$uploadfile = Configure::read('Uploads.designers_fotografias') . 'foto.png';
+			
+			if(move_uploaded_file($_FILES['fotografia']['tmp_name'],$uploadfile)){
+				echo "Arquivo recebido com sucesso.\n";
+			}else{
+				echo "Erro ao receber arquivo!\n";
+			}
+			
+			var_dump($_FILES);
+			die;
+			
 			if($salvar==true){
 				$designer->atualizacao = time();
 				if ($this->Designers->save($designer)) {
