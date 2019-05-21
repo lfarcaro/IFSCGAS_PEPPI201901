@@ -44,8 +44,19 @@ class DesignersController extends AppController
             if($senha === $confirmacaoSenha && ($senha !== "" && $confirmacaoSenha !== "")){
                 $designer->senha = $this->request->getData('senha');
                 if ($this->Designers->save($designer)) {
-                    $this->Flash->success(__('The designer has been saved.'));
-
+                    if(!empty($_FILES['fotografia']['name'])){
+                        $nomearquivo = $designer->id . '.' . pathinfo($_FILES['fotografia']['name'], PATHINFO_EXTENSION);
+                        $uploadfile = Configure::read('Uploads.imagens') . 'fotografias/designers/' . $nomearquivo;
+                        if(!move_uploaded_file($_FILES['fotografia']['tmp_name'], $uploadfile)){
+                            $this->Flash->error(__('Falha ao salvar fotografia'));
+                        }
+                        $designer->caminho_fotografia = $nomearquivo;
+                        if ($this->Designers->save($designer)) {
+                                $this->Flash->success(__('The designer has been saved.'));
+                                return $this->redirect(['action' => 'index']);
+                        }
+                    
+                    }
                     return $this->redirect(['action' => 'index']);
                 }
             }else{
