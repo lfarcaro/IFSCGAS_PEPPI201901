@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * Desfiles Controller
@@ -50,11 +51,29 @@ class DesfilesController extends AppController
         $desfile = $this->Desfiles->newEntity();
         if ($this->request->is('post')) {
             $desfile = $this->Desfiles->patchEntity($desfile, $this->request->getData());
-            if ($this->Desfiles->save($desfile)) {
-                $this->Flash->success(__('The desfile has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            $desfile->caminho_capa = '';
+            if ($this->Desfiles->save($desfile)) {
+
+                if (!empty($_FILES['capa']['name'])){
+                    $nomearquivo = $desfile->id . '.' . pathinfo($_FILES['capa']['name'], PATHINFO_EXTENSION);
+                    $uploadfile = Configure::read('Uploads.imagens') . 'desfiles/capa/' . $nomearquivo;
+                    if (move_uploaded_file($_FILES['capa']['tmp_name'], $uploadfile)){
+                        $desfile->caminho_capa = $nomearquivo;
+
+                        if ($this->Desfiles->save($desfile)) {
+                            $this->Flash->success(__('The desfile has been saved.'));
+                            return $this->redirect(['action' => 'index']);
+                        }
+                    } else {
+                        $this->Flash->error(__('Falha ao salvar a imagem de capa'));
+                    }        
+                } else {
+                     $this->Flash->success(__('The desfile has been saved.'));
+                     return $this->redirect(['action' => 'index']);
+                }
             }
+
             $this->Flash->error(__('The desfile could not be saved. Please, try again.'));
         }
         $this->set(compact('desfile'));
@@ -73,13 +92,29 @@ class DesfilesController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+            
             $desfile = $this->Desfiles->patchEntity($desfile, $this->request->getData());
-            if ($this->Desfiles->save($desfile)) {
-                $this->Flash->success(__('The desfile has been saved.'));
+            
+            $salvar = true;
 
-                return $this->redirect(['action' => 'index']);
+            if (!empty($_FILES['capa']['name'])){
+                $nomearquivo = $desfile->id . '.' . pathinfo($_FILES['capa']['name'], PATHINFO_EXTENSION);
+                $uploadfile = Configure::read('Uploads.imagens') . 'desfiles/capa/' . $nomearquivo;
+                if (move_uploaded_file($_FILES['capa']['tmp_name'], $uploadfile)){
+                    $desfile->caminho_capa = $nomearquivo;
+                }else{
+                    $this->Flash->error(__('Falha ao salvar a imagem de capa'));
+                    $salvar = false;
+                }
             }
-            $this->Flash->error(__('The desfile could not be saved. Please, try again.'));
+
+            if($salvar == true){
+                if ($this->Desfiles->save($desfile)) {
+                    $this->Flash->success(__('The desfile has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('Falha ao salvar a imagem de capa'));
+            }
         }
         $this->set(compact('desfile'));
     }

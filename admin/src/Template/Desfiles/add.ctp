@@ -13,7 +13,7 @@
     </ul>
 </nav>
 <div class="desfiles form large-9 medium-8 columns content">
-    <?= $this->Form->create($desfile) ?>
+    <?= $this->Form->create($desfile, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Add Desfile') ?></legend>
         <?php
@@ -21,7 +21,7 @@
             echo $this->Form->control('turma');
             echo $this->Form->control('descricao_breve');
             echo $this->Form->control('descricao_detalhada');
-            echo $this->Form->control('caminho_capa');
+            echo $this->Form->control('capa', ['type' => 'file']);
         ?>
     </fieldset>
 	<script>

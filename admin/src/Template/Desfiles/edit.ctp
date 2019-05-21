@@ -27,7 +27,7 @@
             echo $this->Form->control('turma');
             echo $this->Form->control('descricao_breve');
             echo $this->Form->control('descricao_detalhada');
-            echo $this->Form->control('fotografia', ['type' => 'file']);
+            echo $this->Form->control('capa', ['type' => 'file']);
         ?>
     </fieldset>
 	<script>

@@ -79,8 +79,7 @@ class DesfilesTable extends Table
         $validator
             ->scalar('caminho_capa')
             ->maxLength('caminho_capa', 512)
-            ->requirePresence('caminho_capa', 'create')
-            ->allowEmptyString('caminho_capa', false);
+            ->allowEmptyString('caminho_capa');
 
         return $validator;
     }
