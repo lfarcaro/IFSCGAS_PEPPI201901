@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+
 use App\Controller\AppController;
 use Cake\Core\Configure;
 /**
@@ -82,14 +83,15 @@ class DesignersController extends AppController
 				}
 			}
 			
-			$uploadfile = Configure::read('Uploads.imagens') . 'fotografias/designers/' . $designer->id . '.' . pathinfo($_FILES['fotografia']['name'], PATHINFO_EXTENSION);
-			
-			if(move_uploaded_file($_FILES['fotografia']['tmp_name'],$uploadfile)){
-				echo "Arquivo recebido com sucesso.\n";
-			}else{
-				echo "Erro ao receber arquivo!\n";
+			if(!empty($_FILES['fotografia']['name'])){
+			$nomearquivo = $designer->id . '.' . pathinfo($_FILES['fotografia']['name'], PATHINFO_EXTENSION);
+			$uploadfile = Configure::read('Uploads.imagens') . 'fotografias/designers/' . $nomearquivo;
+			if(!move_uploaded_file($_FILES['fotografia']['tmp_name'], $uploadfile)){
+				$this->Flash->error(__('Falha ao salvar fotografia'));
+				$salvar = false;
 			}
-			
+			$designer->caminho_fotografia = $nomearquivo;
+			}
 			if($salvar==true){
 				$designer->atualizacao = time();
 				if ($this->Designers->save($designer)) {
