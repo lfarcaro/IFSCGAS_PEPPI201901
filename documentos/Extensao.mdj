@@ -15676,7 +15676,8 @@
 							"name": "caminho_capa",
 							"documentation": "Indica o caminho para a imagem de capa.",
 							"type": "varchar",
-							"length": "512"
+							"length": "512",
+							"nullable": true
 						}
 					]
 				},
@@ -15908,7 +15909,8 @@
 							"name": "caminho_capa",
 							"documentation": "Indica o caminho para a imagem de capa.",
 							"type": "varchar",
-							"length": "512"
+							"length": "512",
+							"nullable": true
 						}
 					]
 				},

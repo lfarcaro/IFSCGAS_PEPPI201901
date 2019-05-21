@@ -7,9 +7,9 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Novo Projeto'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('Lista de Projetos de Fotografias'), ['controller' => 'ProjetoFotografias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Novo Projeto de Fotografia'), ['controller' => 'ProjetoFotografias', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Projeto'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Projeto Fotografias'), ['controller' => 'ProjetoFotografias', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Projeto Fotografia'), ['controller' => 'ProjetoFotografias', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="projetos index large-9 medium-8 columns content">

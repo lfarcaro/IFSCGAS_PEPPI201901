@@ -79,7 +79,7 @@ CREATE TABLE `desfiles` (
     `turma` varchar(128) NOT NULL,
     `descricao_breve` varchar(512) NOT NULL,
     `descricao_detalhada` longtext NOT NULL,
-    `caminho_capa` varchar(512) NOT NULL,
+    `caminho_capa` varchar(512),
     PRIMARY KEY (`id`)
 );
 
@@ -101,7 +101,7 @@ CREATE TABLE `projetos` (
     `datatermino` date NOT NULL,
     `descricao_breve` varchar(512) NOT NULL,
     `descricao_detalhada` longtext NOT NULL,
-    `caminho_capa` varchar(512) NOT NULL,
+    `caminho_capa` varchar(512),
     PRIMARY KEY (`id`)
 );
 
