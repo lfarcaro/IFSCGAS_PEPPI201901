@@ -44,7 +44,7 @@ class AdministradoresController extends AppController
             if ($senha == $confirmarSenha && !$emailInvalido){
                 $administrador->senha = $senha;
                 if ($this->Administradores->save($administrador)) {
-                    $this->Flash->success(__('Administrador inserido com sucesso.'));
+                    $this->Flash->success(__('The administrador has been saved.'));
 
                     return $this->redirect(['action' => 'index']);
                 }

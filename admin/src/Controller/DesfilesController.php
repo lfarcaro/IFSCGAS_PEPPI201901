@@ -51,8 +51,6 @@ class DesfilesController extends AppController
         $desfile = $this->Desfiles->newEntity();
         if ($this->request->is('post')) {
             $desfile = $this->Desfiles->patchEntity($desfile, $this->request->getData());
-
-            $desfile->caminho_capa = '';
             if ($this->Desfiles->save($desfile)) {
 
                 if (!empty($_FILES['capa']['name'])){
@@ -92,7 +90,6 @@ class DesfilesController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            
             $desfile = $this->Desfiles->patchEntity($desfile, $this->request->getData());
             
             $salvar = true;
