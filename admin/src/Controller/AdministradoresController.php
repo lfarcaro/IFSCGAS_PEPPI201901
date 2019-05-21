@@ -23,43 +23,35 @@ class AdministradoresController extends AppController
 
         $this->set(compact('administradores'));
     }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Administrador id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $administrador = $this->Administradores->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('administrador', $administrador);
-    }
-
+	
     /**
      * Add method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
     public function add()
-    {
+    {							
         $administrador = $this->Administradores->newEntity();
         if ($this->request->is('post')) {
+			
+			$senha = $this->request->getData('senha1');
+			$confirmarSenha = $this->request->getData('senha2');
+			
+			$query = $this->Administradores->find()->where(['email'=> $this->request->getData('email')]);
+			$emailInvalido =  $query->count() > 0;
+			
             $administrador = $this->Administradores->patchEntity($administrador, $this->request->getData());
-            
-            if ($this->request->getData('senha1') == $this->request->getData('senha2')){
-                $administrador->senha = $this->request->getData('senha1');
+            if ($senha == $confirmarSenha && !$emailInvalido){
+                $administrador->senha = $senha;
                 if ($this->Administradores->save($administrador)) {
-                    $this->Flash->success(__('The administrador has been saved.'));
+                    $this->Flash->success(__('Administrador inserido com sucesso.'));
 
                     return $this->redirect(['action' => 'index']);
                 }
                 $this->Flash->error(__('The administrador could not be saved. Please, try again.'));     
-            }else{
+			}else if($emailInvalido){
+				$this->Flash->error(__('Este email já está sendo usado'));  
+			}else{
                 $this->Flash->error(__('As senhas não coincidem.'));
             }
         }
@@ -78,6 +70,7 @@ class AdministradoresController extends AppController
         $administrador = $this->Administradores->get($id, [
             'contain' => []
         ]);
+		
         if ($this->request->is(['patch', 'post', 'put'])) {
             $administrador = $this->Administradores->patchEntity($administrador, $this->request->getData());
             
@@ -129,4 +122,5 @@ class AdministradoresController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+	
 }
