@@ -1,0 +1,1179 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-05-27 22:12+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/AdministradoresController.php:47;82;96
+msgid "The administrador has been saved."
+msgstr ""
+
+#: Controller/AdministradoresController.php:51;86;100
+msgid "The administrador could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/AdministradoresController.php:53
+msgid "Este email já está sendo usado"
+msgstr ""
+
+#: Controller/AdministradoresController.php:55;88
+msgid "As senhas não coincidem."
+msgstr ""
+
+#: Controller/AdministradoresController.php:118
+msgid "The administrador has been deleted."
+msgstr ""
+
+#: Controller/AdministradoresController.php:120
+msgid "The administrador could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/ArtigosController.php:57;83
+msgid "The artigo has been saved."
+msgstr ""
+
+#: Controller/ArtigosController.php:61;87
+msgid "The artigo could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ArtigosController.php:106
+msgid "The artigo has been deleted."
+msgstr ""
+
+#: Controller/ArtigosController.php:108
+msgid "The artigo could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/CategoriasController.php:38;62
+msgid "The categoria has been saved."
+msgstr ""
+
+#: Controller/CategoriasController.php:42;66
+msgid "The categoria could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/CategoriasController.php:83
+msgid "The categoria has been deleted."
+msgstr ""
+
+#: Controller/CategoriasController.php:85
+msgid "The categoria could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/DesfilesController.php:63;70;110
+msgid "The desfile has been saved."
+msgstr ""
+
+#: Controller/DesfilesController.php:67;103;113
+msgid "Falha ao salvar a imagem de capa"
+msgstr ""
+
+#: Controller/DesfilesController.php:75
+msgid "The desfile could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/DesfilesController.php:131
+msgid "The desfile has been deleted."
+msgstr ""
+
+#: Controller/DesfilesController.php:133
+msgid "The desfile could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/DesignersController.php:52;101
+msgid "Falha ao salvar fotografia"
+msgstr ""
+
+#: Controller/DesignersController.php:56;109
+msgid "The designer has been saved."
+msgstr ""
+
+#: Controller/DesignersController.php:64;92
+msgid "As senhas não coincidem"
+msgstr ""
+
+#: Controller/DesignersController.php:66;112
+msgid "The designer could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/DesignersController.php:130
+msgid "The designer has been deleted."
+msgstr ""
+
+#: Controller/DesignersController.php:132
+msgid "The designer could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/PaginasController.php:58
+msgid "The pagina has been saved."
+msgstr ""
+
+#: Controller/PaginasController.php:62
+msgid "The pagina could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ProjetosController.php:38;62
+msgid "The projeto has been saved."
+msgstr ""
+
+#: Controller/ProjetosController.php:42;66
+msgid "The projeto could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ProjetosController.php:83
+msgid "The projeto has been deleted."
+msgstr ""
+
+#: Controller/ProjetosController.php:85
+msgid "The projeto could not be deleted. Please, try again."
+msgstr ""
+
+#: Template/Administradores/add.ctp:9
+#: Template/Administradores/edit.ctp:9
+#: Template/Administradores/index.ctp:9;21
+#: Template/Administradores/view.ctp:9
+#: Template/Artigos/add.ctp:9
+#: Template/Artigos/edit.ctp:9
+#: Template/Artigos/index.ctp:9;41
+#: Template/Artigos/view.ctp:9;100;135;174
+#: Template/Categorias/add.ctp:9
+#: Template/Categorias/edit.ctp:9
+#: Template/Categorias/index.ctp:9;22
+#: Template/Categorias/view.ctp:9;54
+#: Template/Desfiles/add.ctp:9
+#: Template/Desfiles/edit.ctp:9
+#: Template/Desfiles/index.ctp:9;22
+#: Template/Desfiles/view.ctp:9;56
+#: Template/Designers/add.ctp:9
+#: Template/Designers/edit.ctp:9
+#: Template/Designers/index.ctp:9;26
+#: Template/Designers/view.ctp:9;102
+#: Template/Paginas/add.ctp:9
+#: Template/Paginas/edit.ctp:9
+#: Template/Paginas/index.ctp:9;20
+#: Template/Paginas/view.ctp:9
+#: Template/Projetos/add.ctp:9
+#: Template/Projetos/edit.ctp:9
+#: Template/Projetos/index.ctp:9;27
+#: Template/Projetos/view.ctp:9;68
+msgid "Actions"
+msgstr ""
+
+#: Template/Administradores/add.ctp:10
+#: Template/Administradores/edit.ctp:16
+#: Template/Administradores/view.ctp:12
+msgid "List Administradores"
+msgstr ""
+
+#: Template/Administradores/add.ctp:16
+msgid "Add Administrador"
+msgstr ""
+
+#: Template/Administradores/add.ctp:25
+#: Template/Administradores/edit.ctp:31
+#: Template/Artigos/add.ctp:44
+#: Template/Artigos/edit.ctp:50
+#: Template/Categorias/add.ctp:24
+#: Template/Categorias/edit.ctp:30
+#: Template/Desfiles/add.ctp:36
+#: Template/Desfiles/edit.ctp:42
+#: Template/Designers/add.ctp:43
+#: Template/Designers/edit.ctp:50
+#: Template/Paginas/add.ctp:23
+#: Template/Paginas/edit.ctp:32
+#: Template/Projetos/add.ctp:30
+#: Template/Projetos/edit.ctp:36
+#: View/Helper/FormHelper.php:2028
+msgid "Submit"
+msgstr ""
+
+#: Template/Administradores/edit.ctp:11
+#: Template/Administradores/index.ctp:32
+#: Template/Artigos/edit.ctp:11
+#: Template/Artigos/index.ctp:63
+#: Template/Artigos/view.ctp:112;153;190
+#: Template/Categorias/edit.ctp:11
+#: Template/Categorias/index.ctp:32
+#: Template/Desfiles/edit.ctp:11
+#: Template/Desfiles/index.ctp:32
+#: Template/Desfiles/view.ctp:68
+#: Template/Designers/edit.ctp:11
+#: Template/Designers/index.ctp:40
+#: Template/Designers/view.ctp:124
+#: Template/Projetos/edit.ctp:11
+#: Template/Projetos/index.ctp:42
+#: Template/Projetos/view.ctp:80
+msgid "Delete"
+msgstr ""
+
+#: Template/Administradores/edit.ctp:13
+#: Template/Administradores/index.ctp:32
+#: Template/Administradores/view.ctp:11
+#: Template/Artigos/edit.ctp:13
+#: Template/Artigos/index.ctp:63
+#: Template/Artigos/view.ctp:11;112;153;190
+#: Template/Categorias/edit.ctp:13
+#: Template/Categorias/index.ctp:32
+#: Template/Categorias/view.ctp:11;76
+#: Template/Desfiles/edit.ctp:13
+#: Template/Desfiles/index.ctp:32
+#: Template/Desfiles/view.ctp:11;68
+#: Template/Designers/edit.ctp:13
+#: Template/Designers/index.ctp:40
+#: Template/Designers/view.ctp:11;124
+#: Template/Projetos/edit.ctp:13
+#: Template/Projetos/index.ctp:42
+#: Template/Projetos/view.ctp:11;80
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Administradores/edit.ctp:22
+#: Template/Administradores/view.ctp:10
+msgid "Edit Administrador"
+msgstr ""
+
+#: Template/Administradores/index.ctp:10
+#: Template/Administradores/view.ctp:13
+msgid "New Administrador"
+msgstr ""
+
+#: Template/Administradores/index.ctp:14
+msgid "Administradores"
+msgstr ""
+
+#: Template/Administradores/index.ctp:31
+#: Template/Artigos/index.ctp:62
+#: Template/Artigos/view.ctp:111;152;189
+#: Template/Categorias/index.ctp:31
+#: Template/Desfiles/index.ctp:31
+#: Template/Desfiles/view.ctp:67
+#: Template/Designers/index.ctp:39
+#: Template/Designers/view.ctp:123
+#: Template/Paginas/index.ctp:31
+#: Template/Projetos/index.ctp:41
+#: Template/Projetos/view.ctp:79
+msgid "Edit"
+msgstr ""
+
+#: Template/Administradores/index.ctp:40
+#: Template/Artigos/index.ctp:71
+#: Template/Categorias/index.ctp:40
+#: Template/Desfiles/index.ctp:40
+#: Template/Designers/index.ctp:48
+#: Template/Paginas/index.ctp:39
+#: Template/Projetos/index.ctp:50
+msgid "first"
+msgstr ""
+
+#: Template/Administradores/index.ctp:41
+#: Template/Artigos/index.ctp:72
+#: Template/Categorias/index.ctp:41
+#: Template/Desfiles/index.ctp:41
+#: Template/Designers/index.ctp:49
+#: Template/Paginas/index.ctp:40
+#: Template/Projetos/index.ctp:51
+msgid "previous"
+msgstr ""
+
+#: Template/Administradores/index.ctp:43
+#: Template/Artigos/index.ctp:74
+#: Template/Categorias/index.ctp:43
+#: Template/Desfiles/index.ctp:43
+#: Template/Designers/index.ctp:51
+#: Template/Paginas/index.ctp:42
+#: Template/Projetos/index.ctp:53
+msgid "next"
+msgstr ""
+
+#: Template/Administradores/index.ctp:44
+#: Template/Artigos/index.ctp:75
+#: Template/Categorias/index.ctp:44
+#: Template/Desfiles/index.ctp:44
+#: Template/Designers/index.ctp:52
+#: Template/Paginas/index.ctp:43
+#: Template/Projetos/index.ctp:54
+msgid "last"
+msgstr ""
+
+#: Template/Administradores/index.ctp:46
+#: Template/Artigos/index.ctp:77
+#: Template/Categorias/index.ctp:46
+#: Template/Desfiles/index.ctp:46
+#: Template/Designers/index.ctp:54
+#: Template/Paginas/index.ctp:45
+#: Template/Projetos/index.ctp:56
+msgid "Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total"
+msgstr ""
+
+#: Template/Administradores/view.ctp:11
+msgid "Delete Administrador"
+msgstr ""
+
+#: Template/Administradores/view.ctp:20
+#: Template/Designers/view.ctp:22
+msgid "Senha"
+msgstr ""
+
+#: Template/Administradores/view.ctp:24
+#: Template/Artigos/view.ctp:42;127;168
+#: Template/Categorias/view.ctp:22;43
+#: Template/Designers/view.ctp:26;91
+#: Template/Paginas/view.ctp:22
+#: Template/Projetos/view.ctp:22
+msgid "Nome"
+msgstr ""
+
+#: Template/Administradores/view.ctp:28
+#: Template/Artigos/view.ctp:128;169
+#: Template/Designers/view.ctp:30
+msgid "Email"
+msgstr ""
+
+#: Template/Administradores/view.ctp:32
+#: Template/Artigos/view.ctp:54;95;124;165
+#: Template/Categorias/view.ctp:30;39
+#: Template/Desfiles/view.ctp:34;51
+#: Template/Designers/view.ctp:58;87
+#: Template/Paginas/view.ctp:26
+#: Template/Projetos/view.ctp:42;63
+msgid "Id"
+msgstr ""
+
+#: Template/Administradores/view.ctp:36
+msgid "Recebe Contato"
+msgstr ""
+
+#: Template/Administradores/view.ctp:37
+#: Template/Artigos/view.ctp:79
+#: Template/Designers/view.ctp:71;75
+msgid "Yes"
+msgstr ""
+
+#: Template/Administradores/view.ctp:37
+#: Template/Artigos/view.ctp:79
+#: Template/Designers/view.ctp:71;75
+msgid "No"
+msgstr ""
+
+#: Template/Artigos/add.ctp:10
+#: Template/Artigos/edit.ctp:16
+#: Template/Artigos/view.ctp:12
+#: Template/Categorias/add.ctp:11
+#: Template/Categorias/edit.ctp:17
+#: Template/Categorias/index.ctp:11
+#: Template/Categorias/view.ctp:14
+#: Template/Designers/add.ctp:11
+#: Template/Designers/edit.ctp:17
+#: Template/Designers/index.ctp:11
+#: Template/Designers/view.ctp:14
+msgid "List Artigos"
+msgstr ""
+
+#: Template/Artigos/add.ctp:11
+#: Template/Artigos/edit.ctp:17
+#: Template/Artigos/index.ctp:11
+#: Template/Artigos/view.ctp:14
+#: Template/Designers/add.ctp:10
+#: Template/Designers/edit.ctp:16
+#: Template/Designers/view.ctp:12
+msgid "List Designers"
+msgstr ""
+
+#: Template/Artigos/add.ctp:12
+#: Template/Artigos/edit.ctp:18
+#: Template/Artigos/index.ctp:12
+#: Template/Artigos/view.ctp:15
+#: Template/Designers/index.ctp:10
+#: Template/Designers/view.ctp:13
+msgid "New Designer"
+msgstr ""
+
+#: Template/Artigos/add.ctp:13
+#: Template/Artigos/edit.ctp:19
+#: Template/Artigos/index.ctp:13
+#: Template/Artigos/view.ctp:16
+#: Template/Categorias/add.ctp:10
+#: Template/Categorias/edit.ctp:16
+#: Template/Categorias/view.ctp:12
+msgid "List Categorias"
+msgstr ""
+
+#: Template/Artigos/add.ctp:14
+#: Template/Artigos/edit.ctp:20
+#: Template/Artigos/index.ctp:14
+#: Template/Artigos/view.ctp:17
+#: Template/Categorias/index.ctp:10
+#: Template/Categorias/view.ctp:13
+msgid "New Categoria"
+msgstr ""
+
+#: Template/Artigos/add.ctp:15
+#: Template/Artigos/edit.ctp:21
+#: Template/Artigos/index.ctp:15
+#: Template/Artigos/view.ctp:18
+msgid "List Artigo Fotografias"
+msgstr ""
+
+#: Template/Artigos/add.ctp:16
+#: Template/Artigos/edit.ctp:22
+#: Template/Artigos/index.ctp:16
+#: Template/Artigos/view.ctp:19
+msgid "New Artigo Fotografia"
+msgstr ""
+
+#: Template/Artigos/add.ctp:17
+#: Template/Artigos/edit.ctp:23
+#: Template/Artigos/index.ctp:17
+#: Template/Artigos/view.ctp:20
+msgid "List Log Contatodesigners"
+msgstr ""
+
+#: Template/Artigos/add.ctp:18
+#: Template/Artigos/edit.ctp:24
+#: Template/Artigos/index.ctp:18
+#: Template/Artigos/view.ctp:21
+msgid "New Log Contatodesigner"
+msgstr ""
+
+#: Template/Artigos/add.ctp:19
+#: Template/Artigos/edit.ctp:25
+#: Template/Artigos/index.ctp:19
+#: Template/Artigos/view.ctp:22
+msgid "List Log Customizacoes"
+msgstr ""
+
+#: Template/Artigos/add.ctp:20
+#: Template/Artigos/edit.ctp:26
+#: Template/Artigos/index.ctp:20
+#: Template/Artigos/view.ctp:23
+msgid "New Log Customizaco"
+msgstr ""
+
+#: Template/Artigos/add.ctp:26
+msgid "Add Artigo"
+msgstr ""
+
+#: Template/Artigos/edit.ctp:32
+#: Template/Artigos/view.ctp:10
+msgid "Edit Artigo"
+msgstr ""
+
+#: Template/Artigos/index.ctp:10
+#: Template/Artigos/view.ctp:13
+#: Template/Categorias/add.ctp:12
+#: Template/Categorias/edit.ctp:18
+#: Template/Categorias/index.ctp:12
+#: Template/Categorias/view.ctp:15
+#: Template/Designers/add.ctp:12
+#: Template/Designers/edit.ctp:18
+#: Template/Designers/index.ctp:12
+#: Template/Designers/view.ctp:15
+msgid "New Artigo"
+msgstr ""
+
+#: Template/Artigos/index.ctp:24
+msgid "Artigos"
+msgstr ""
+
+#: Template/Artigos/index.ctp:61
+#: Template/Artigos/view.ctp:110;151;188
+#: Template/Desfiles/view.ctp:66
+#: Template/Designers/view.ctp:122
+#: Template/Paginas/index.ctp:30
+#: Template/Projetos/view.ctp:78
+#: View/Helper/PaginatorHelper.php:1258
+msgid "View"
+msgstr ""
+
+#: Template/Artigos/view.ctp:11
+msgid "Delete Artigo"
+msgstr ""
+
+#: Template/Artigos/view.ctp:30
+msgid "Designer"
+msgstr ""
+
+#: Template/Artigos/view.ctp:34
+msgid "Categoria"
+msgstr ""
+
+#: Template/Artigos/view.ctp:38
+#: Template/Categorias/view.ctp:42
+#: Template/Designers/view.ctp:90
+msgid "Codigo"
+msgstr ""
+
+#: Template/Artigos/view.ctp:46
+#: Template/Categorias/view.ctp:44
+#: Template/Desfiles/view.ctp:26
+#: Template/Designers/view.ctp:92
+#: Template/Projetos/view.ctp:34
+msgid "Descricao Breve"
+msgstr ""
+
+#: Template/Artigos/view.ctp:50
+#: Template/Categorias/view.ctp:46
+#: Template/Designers/view.ctp:94
+msgid "Disponibilidade"
+msgstr ""
+
+#: Template/Artigos/view.ctp:58
+#: Template/Categorias/view.ctp:51
+#: Template/Designers/view.ctp:99
+msgid "Numero Visualizacoes"
+msgstr ""
+
+#: Template/Artigos/view.ctp:62
+#: Template/Categorias/view.ctp:52
+#: Template/Designers/view.ctp:100
+msgid "Numero Favoritacoes"
+msgstr ""
+
+#: Template/Artigos/view.ctp:66
+#: Template/Categorias/view.ctp:53
+#: Template/Designers/view.ctp:101
+msgid "Numero Compartilhamentos"
+msgstr ""
+
+#: Template/Artigos/view.ctp:70
+#: Template/Categorias/view.ctp:48
+#: Template/Designers/view.ctp:96
+msgid "Criacao"
+msgstr ""
+
+#: Template/Artigos/view.ctp:74
+#: Template/Categorias/view.ctp:49
+#: Template/Designers/view.ctp:66;97
+msgid "Atualizacao"
+msgstr ""
+
+#: Template/Artigos/view.ctp:78
+#: Template/Categorias/view.ctp:47
+#: Template/Designers/view.ctp:95
+msgid "Customizavel"
+msgstr ""
+
+#: Template/Artigos/view.ctp:83
+#: Template/Categorias/view.ctp:45
+#: Template/Designers/view.ctp:93
+msgid "Descricao Completa"
+msgstr ""
+
+#: Template/Artigos/view.ctp:87;132
+#: Template/Categorias/view.ctp:50
+#: Template/Designers/view.ctp:98
+msgid "Variacoes Disponiveis"
+msgstr ""
+
+#: Template/Artigos/view.ctp:91
+msgid "Related Artigo Fotografias"
+msgstr ""
+
+#: Template/Artigos/view.ctp:96;125;166
+msgid "Artigo Id"
+msgstr ""
+
+#: Template/Artigos/view.ctp:97
+#: Template/Desfiles/view.ctp:53
+#: Template/Projetos/view.ctp:65
+msgid "Ordem"
+msgstr ""
+
+#: Template/Artigos/view.ctp:98
+#: Template/Desfiles/view.ctp:54
+#: Template/Projetos/view.ctp:66
+msgid "Nome Arquivo"
+msgstr ""
+
+#: Template/Artigos/view.ctp:99
+#: Template/Desfiles/view.ctp:55
+#: Template/Projetos/view.ctp:67
+msgid "Caminho Arquivo"
+msgstr ""
+
+#: Template/Artigos/view.ctp:120
+msgid "Related Log Contatodesigners"
+msgstr ""
+
+#: Template/Artigos/view.ctp:126;167
+msgid "Datahora"
+msgstr ""
+
+#: Template/Artigos/view.ctp:129;170
+#: Template/Designers/view.ctp:34
+msgid "Telefone"
+msgstr ""
+
+#: Template/Artigos/view.ctp:130;171
+#: Template/Designers/view.ctp:38
+msgid "Celular"
+msgstr ""
+
+#: Template/Artigos/view.ctp:131;172
+#: Template/Designers/view.ctp:74
+msgid "Celular Whatsapp"
+msgstr ""
+
+#: Template/Artigos/view.ctp:133
+msgid "Variacoes Escolhidas"
+msgstr ""
+
+#: Template/Artigos/view.ctp:134
+msgid "Mensagem"
+msgstr ""
+
+#: Template/Artigos/view.ctp:161
+msgid "Related Log Customizacoes"
+msgstr ""
+
+#: Template/Artigos/view.ctp:173
+msgid "Customizacao"
+msgstr ""
+
+#: Template/Categorias/add.ctp:18
+msgid "Add Categoria"
+msgstr ""
+
+#: Template/Categorias/edit.ctp:24
+#: Template/Categorias/view.ctp:10
+msgid "Edit Categoria"
+msgstr ""
+
+#: Template/Categorias/index.ctp:16
+msgid "Categorias"
+msgstr ""
+
+#: Template/Categorias/view.ctp:11
+msgid "Delete Categoria"
+msgstr ""
+
+#: Template/Categorias/view.ctp:26
+msgid "Descricao"
+msgstr ""
+
+#: Template/Categorias/view.ctp:35
+#: Template/Designers/view.ctp:83
+msgid "Related Artigos"
+msgstr ""
+
+#: Template/Categorias/view.ctp:40
+#: Template/Designers/view.ctp:88
+msgid "Designer Id"
+msgstr ""
+
+#: Template/Categorias/view.ctp:41
+#: Template/Designers/view.ctp:89
+msgid "Categoria Id"
+msgstr ""
+
+#: Template/Categorias/view.ctp:74
+msgid "Ver"
+msgstr ""
+
+#: Template/Categorias/view.ctp:75
+msgid "Editar"
+msgstr ""
+
+#: Template/Categorias/view.ctp:76
+msgid "Deletar"
+msgstr ""
+
+#: Template/Desfiles/add.ctp:10
+#: Template/Desfiles/edit.ctp:16
+#: Template/Desfiles/view.ctp:12
+msgid "List Desfiles"
+msgstr ""
+
+#: Template/Desfiles/add.ctp:11
+#: Template/Desfiles/edit.ctp:17
+#: Template/Desfiles/index.ctp:11
+#: Template/Desfiles/view.ctp:14
+msgid "List Desfile Fotografias"
+msgstr ""
+
+#: Template/Desfiles/add.ctp:12
+#: Template/Desfiles/edit.ctp:18
+#: Template/Desfiles/index.ctp:12
+#: Template/Desfiles/view.ctp:15
+msgid "New Desfile Fotografia"
+msgstr ""
+
+#: Template/Desfiles/add.ctp:18
+msgid "Add Desfile"
+msgstr ""
+
+#: Template/Desfiles/edit.ctp:24
+#: Template/Desfiles/view.ctp:10
+msgid "Edit Desfile"
+msgstr ""
+
+#: Template/Desfiles/index.ctp:10
+#: Template/Desfiles/view.ctp:13
+msgid "New Desfile"
+msgstr ""
+
+#: Template/Desfiles/index.ctp:16
+msgid "Desfiles"
+msgstr ""
+
+#: Template/Desfiles/view.ctp:11
+msgid "Delete Desfile"
+msgstr ""
+
+#: Template/Desfiles/view.ctp:22
+#: Template/Projetos/view.ctp:26
+msgid "Turma"
+msgstr ""
+
+#: Template/Desfiles/view.ctp:30
+#: Template/Projetos/view.ctp:38
+msgid "Caminho Capa"
+msgstr ""
+
+#: Template/Desfiles/view.ctp:38
+msgid "Data"
+msgstr ""
+
+#: Template/Desfiles/view.ctp:43
+#: Template/Projetos/view.ctp:55
+msgid "Descricao Detalhada"
+msgstr ""
+
+#: Template/Desfiles/view.ctp:47
+msgid "Related Desfile Fotografias"
+msgstr ""
+
+#: Template/Desfiles/view.ctp:52
+msgid "Desfile Id"
+msgstr ""
+
+#: Template/Designers/add.ctp:18
+msgid "Add Designer"
+msgstr ""
+
+#: Template/Designers/edit.ctp:24
+#: Template/Designers/view.ctp:10
+msgid "Edit Designer"
+msgstr ""
+
+#: Template/Designers/index.ctp:16
+msgid "Designers"
+msgstr ""
+
+#: Template/Designers/view.ctp:11
+msgid "Delete Designer"
+msgstr ""
+
+#: Template/Designers/view.ctp:42
+msgid "Curso"
+msgstr ""
+
+#: Template/Designers/view.ctp:46
+#: Template/Projetos/view.ctp:30
+msgid "Fase"
+msgstr ""
+
+#: Template/Designers/view.ctp:50
+msgid "Apresentacao Breve"
+msgstr ""
+
+#: Template/Designers/view.ctp:54
+msgid "Caminho Fotografia"
+msgstr ""
+
+#: Template/Designers/view.ctp:62
+msgid "Inscricao"
+msgstr ""
+
+#: Template/Designers/view.ctp:70
+msgid "Aprovado"
+msgstr ""
+
+#: Template/Designers/view.ctp:79
+msgid "Apresentacao Detalhada"
+msgstr ""
+
+#: Template/Layout/error.ctp:35
+#: Template/Error/error400.ctp:36
+#: Template/Error/error500.ctp:41
+msgid "Error"
+msgstr ""
+
+#: Template/Layout/error.ctp:43
+msgid "Back"
+msgstr ""
+
+#: Template/Paginas/add.ctp:10
+#: Template/Paginas/edit.ctp:10
+#: Template/Paginas/view.ctp:11
+msgid "List Paginas"
+msgstr ""
+
+#: Template/Paginas/add.ctp:16
+msgid "Add Pagina"
+msgstr ""
+
+#: Template/Paginas/edit.ctp:16
+#: Template/Paginas/view.ctp:10
+msgid "Edit Pagina"
+msgstr ""
+
+#: Template/Paginas/index.ctp:13
+msgid "Paginas"
+msgstr ""
+
+#: Template/Paginas/view.ctp:18
+msgid "Identificador"
+msgstr ""
+
+#: Template/Paginas/view.ctp:31
+msgid "Conteudo"
+msgstr ""
+
+#: Template/Projetos/add.ctp:10
+#: Template/Projetos/edit.ctp:16
+#: Template/Projetos/view.ctp:12
+msgid "List Projetos"
+msgstr ""
+
+#: Template/Projetos/add.ctp:11
+#: Template/Projetos/edit.ctp:17
+#: Template/Projetos/index.ctp:11
+#: Template/Projetos/view.ctp:14
+msgid "List Projeto Fotografias"
+msgstr ""
+
+#: Template/Projetos/add.ctp:12
+#: Template/Projetos/edit.ctp:18
+#: Template/Projetos/index.ctp:12
+#: Template/Projetos/view.ctp:15
+msgid "New Projeto Fotografia"
+msgstr ""
+
+#: Template/Projetos/add.ctp:18
+msgid "Add Projeto"
+msgstr ""
+
+#: Template/Projetos/edit.ctp:24
+#: Template/Projetos/view.ctp:10
+msgid "Edit Projeto"
+msgstr ""
+
+#: Template/Projetos/index.ctp:10
+#: Template/Projetos/view.ctp:13
+msgid "New Projeto"
+msgstr ""
+
+#: Template/Projetos/index.ctp:16
+msgid "Projetos"
+msgstr ""
+
+#: Template/Projetos/view.ctp:11
+msgid "Delete Projeto"
+msgstr ""
+
+#: Template/Projetos/view.ctp:46
+msgid "Datainicio"
+msgstr ""
+
+#: Template/Projetos/view.ctp:50
+msgid "Datatermino"
+msgstr ""
+
+#: Template/Projetos/view.ctp:59
+msgid "Related Projeto Fotografias"
+msgstr ""
+
+#: Template/Projetos/view.ctp:64
+msgid "Projeto Id"
+msgstr ""
+
+#: Template/Error/error400.ctp:37
+msgid "The requested address {0} was not found on this server."
+msgstr ""
+
+#: Template/Error/error500.ctp:39
+msgid "An Internal Error Has Occurred"
+msgstr ""
+
+#: Controller/Component/AuthComponent.php:500
+msgid "You are not authorized to access that location."
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:182
+#: Http/Middleware/CsrfProtectionMiddleware.php:196
+msgid "Missing CSRF token cookie"
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:186
+#: Http/Middleware/CsrfProtectionMiddleware.php:200
+msgid "CSRF token mismatch."
+msgstr ""
+
+#: Error/ExceptionRenderer.php:301
+msgid "Not Found"
+msgstr ""
+
+#: Error/ExceptionRenderer.php:303
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: Http/Response.php:2630
+msgid "The requested file contains `..` and will not be read."
+msgstr ""
+
+#: Http/Response.php:2651
+msgid "The requested file was not found"
+msgstr ""
+
+#: I18n/Number.php:90
+msgid "{0,number,#,###.##} KB"
+msgstr ""
+
+#: I18n/Number.php:92
+msgid "{0,number,#,###.##} MB"
+msgstr ""
+
+#: I18n/Number.php:94
+msgid "{0,number,#,###.##} GB"
+msgstr ""
+
+#: I18n/Number.php:96
+msgid "{0,number,#,###.##} TB"
+msgstr ""
+
+#: I18n/Number.php:88
+msgid "{0,number,integer} Byte"
+msgid_plural "{0,number,integer} Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} from now"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:80
+msgid "{0} ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} after"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:83
+msgid "{0} before"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:114
+msgid "just now"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:151
+msgid "about a second ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:152
+msgid "about a minute ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:153
+msgid "about an hour ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:154;332
+msgid "about a day ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:155;333
+msgid "about a week ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:156;334
+msgid "about a month ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:157;335
+msgid "about a year ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:168
+msgid "in about a second"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:169
+msgid "in about a minute"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:170
+msgid "in about an hour"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:171;346
+msgid "in about a day"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:172;347
+msgid "in about a week"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:173;348
+msgid "in about a month"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:174;349
+msgid "in about a year"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:304
+msgid "today"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:370
+msgid "%s ago"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:371
+msgid "on %s"
+msgstr ""
+
+#: I18n/RelativeTimeFormatter.php:47;126;316
+msgid "{0} year"
+msgid_plural "{0} years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:51;129;319
+msgid "{0} month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:57;132;322
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:59;135;325
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:64;138
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:68;141
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/RelativeTimeFormatter.php:72;144
+msgid "{0} second"
+msgid_plural "{0} seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ORM/RulesChecker.php:57
+msgid "This value is already in use"
+msgstr ""
+
+#: ORM/RulesChecker.php:104
+msgid "This value does not exist"
+msgstr ""
+
+#: ORM/RulesChecker.php:128
+msgid "The count does not match {0}{1}"
+msgstr ""
+
+#: Utility/Text.php:934
+msgid "and"
+msgstr ""
+
+#: Validation/Validator.php:2223
+#: View/Form/ArrayContext.php:226
+msgid "This field is required"
+msgstr ""
+
+#: Validation/Validator.php:2245
+msgid "This field cannot be left empty"
+msgstr ""
+
+#: Validation/Validator.php:2395
+msgid "The provided value is invalid"
+msgstr ""
+
+#: View/Helper/FormHelper.php:1107
+msgid "Edit {0}"
+msgstr ""
+
+#: View/Helper/FormHelper.php:1109
+msgid "New {0}"
+msgstr ""
+
+#: View/Helper/HtmlHelper.php:819
+msgid "Home"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:540
+msgid "January"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:541
+msgid "February"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:542
+msgid "March"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:543
+msgid "April"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:544
+msgid "May"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:545
+msgid "June"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:546
+msgid "July"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:547
+msgid "August"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:548
+msgid "September"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:549
+msgid "October"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:550
+msgid "November"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:551
+msgid "December"
+msgstr ""
+
