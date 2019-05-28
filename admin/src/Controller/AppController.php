@@ -51,5 +51,56 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+
+        // Carrega componente de autenticação
+        $this->loadComponent('Auth', [
+            'authenticate' => 'Dual',
+            'loginAction' => ['controller' => 'Authentication', 'action' => 'login'],
+            'unauthorizedRedirect' => '/'
+        ]);
+    }
+
+    // Permissões de administradores
+    private static $permissoesAdministrador = [
+        'Authentication/login',
+        'Administradores/principal'
+    ];
+
+    // Permissões de designers
+    private static $permissoesDesigner = [
+        'Authentication/login',
+        'Designers/principal'
+    ];
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        // Obtém dados da requisição
+        $controller = $this->request->params['controller'];
+        $action = $this->request->params['action'];
+        $controlleraction = $controller . "/" . $action;
+        // Obtém usuário logado
+        $usuario = $this->Auth->user();
+        if ($usuario !== null) {
+            // Verifica o perfil do usuário
+            if ($usuario['perfil'] == 'A') {// Administrador
+                if (!in_array($controlleraction, self::$permissoesAdministrador)) {
+                    $this->Flash->error(__('You are not authorized to access {0}.', $controlleraction));
+                    return $this->redirect(['controller' => 'Authentication', 'action' => 'login']);
+                }
+                $this->set(compact('usuario'));
+            } else if ($usuario['perfil'] == 'D') { // Designer
+                if (!in_array($controlleraction, self::$permissoesDesigner)) {
+                    $this->Flash->error(__('You are not authorized to access {0}.', $controlleraction));
+                    return $this->redirect(['controller' => 'Authentication', 'action' => 'login']);
+                }
+                $this->set(compact('usuario'));
+            } else {
+                $this->Flash->error(__("The authenticated user's profile is not supported."));
+                return $this->redirect(['controller' => 'Authentication', 'action' => 'login']);
+            }
+        } else if ($controlleraction !== 'Authentication/login') {
+            return $this->redirect(['controller' => 'Authentication', 'action' => 'login']);
+        }
     }
 }

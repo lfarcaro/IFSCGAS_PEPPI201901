@@ -25,6 +25,13 @@ class DesignersController extends AppController
         $this->set(compact('designers'));
     }
 
+    
+     public function principal()
+    {
+        $designers = $this->paginate($this->Designers);
+
+        $this->set(compact('designers'));
+    }
     /**
      * Add method
      *

@@ -24,6 +24,12 @@ class AdministradoresController extends AppController
         $this->set(compact('administradores'));
     }
 	
+     public function principal()
+    {
+        $administradores = $this->paginate($this->Administradores);
+
+        $this->set(compact('administradores'));
+    }
     /**
      * Add method
      *
