@@ -13,6 +13,10 @@ use Cake\Core\Configure;
  */
 class DesignersController extends AppController
 {
+    public function principal()
+    {
+    }
+
     /**
      * Index method
      *
@@ -25,13 +29,6 @@ class DesignersController extends AppController
         $this->set(compact('designers'));
     }
 
-    
-     public function principal()
-    {
-        $designers = $this->paginate($this->Designers);
-
-        $this->set(compact('designers'));
-    }
     /**
      * Add method
      *

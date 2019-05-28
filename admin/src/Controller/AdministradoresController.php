@@ -12,6 +12,10 @@ use App\Controller\AppController;
  */
 class AdministradoresController extends AppController
 {
+    public function principal()
+    {
+    }
+
     /**
      * Index method
      *
@@ -24,12 +28,6 @@ class AdministradoresController extends AppController
         $this->set(compact('administradores'));
     }
 	
-     public function principal()
-    {
-        $administradores = $this->paginate($this->Administradores);
-
-        $this->set(compact('administradores'));
-    }
     /**
      * Add method
      *
