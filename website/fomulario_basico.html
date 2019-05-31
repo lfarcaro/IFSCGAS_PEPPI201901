@@ -1,12 +1,8 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-
-
 <!DOCTYPE html>
 <head>
 	<meta charset="UTF-8">
-  <script type="text/javascript">
-    
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript">    
     function TestaCPF() {
         var Soma;
         var Resto;
@@ -43,8 +39,37 @@
       }
     }
 
+  function validacaoEmail(field) {
+
+    document.getElementById("msgemaildiv").style.display = "none";
+
+    usuario = field.value.substring(0, field.value.indexOf("@"));
+    dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+    if ((usuario.length >=1) &&
+        (dominio.length >=3) && 
+        (usuario.search("@")==-1) && 
+        (dominio.search("@")==-1) &&
+        (usuario.search(" ")==-1) && 
+        (dominio.search(" ")==-1) &&
+        (dominio.search(".")!=-1) &&      
+        (dominio.indexOf(".") >=1)&& 
+        (dominio.lastIndexOf(".") < dominio.length - 1)) 
+    {
+      document.getElementById("msgemaildiv").style.display = "none";
+    }
+    else
+    {
+      document.getElementById("msgemaildiv").style.display = "";
+      document.getElementById("msgemail").innerHTML="<font color='red'>Email inválido </font>";
+    }
+  }
+
+  function OnLoadForm(){
+    document.getElementById("msgemaildiv").style.display = "none";
+  }
   </script> 
 </head>
+
 <body>
 
 <form class="form-horizontal">
@@ -130,9 +155,12 @@
 <div class="form-group">
   <label class="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
   <div class="col-md-5">
-    <div class="input-group">
+    <div class="input-group" name="email">
       <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-      <input id="prependedtext" name="prependedtext" class="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+      <input id="prependedtext" name="email" onblur="validacaoEmail(email)" class="form-control" placeholder="email@email.com" required="" type="text">
+    </div>
+    <div class="alert alert-danger" id="msgemaildiv">
+      <strong id="msgemail" onload="OnLoadForm()" ></strong>
     </div>
   </div>
 </div>
