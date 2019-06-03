@@ -17,8 +17,10 @@ class AuthenticationController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
-    public function login()
-    {
+    public function login(){
+		
+		$this->Auth->logout();
+		
         if($this->request->is('post')){
             $usuario = $this->Auth->identify();
             if($usuario !=null){  
@@ -33,6 +35,7 @@ class AuthenticationController extends AppController
                 $this->Flash->error(__('Your e-mail or password is incorrect.'));  
             }
         }
+		$this->render('login','login');
     }
 	
 }

@@ -63,13 +63,46 @@ class AppController extends Controller
     // Permissões de administradores
     private static $permissoesAdministrador = [
         'Authentication/login',
-        'Administradores/principal'
+        'Administradores/principal',
+		'Administradores/index',
+		'Administradores/edit',
+		'Administradores/add',
+		'Administradores/delete',	
+		'Designers/index',
+		'Designers/edit',
+		'Designers/add',
+		'Designers/delete',		
+		'Categorias/index',
+		'Categorias/edit',
+		'Categorias/add',
+		'Categorias/delete',	
+		'Artigos/index',
+		'Artigos/edit',
+		'Artigos/add',
+		'Artigos/delete',	
+		'Desfiles/index',
+		'Desfiles/edit',
+		'Desfiles/add',
+		'Desfiles/delete',
+		'Projetos/index',
+		'Projetos/edit',
+		'Projetos/add',
+		'Projetos/delete',
+		'Paginas/index',
+		'Paginas/edit'
     ];
 
     // Permissões de designers
     private static $permissoesDesigner = [
         'Authentication/login',
-        'Designers/principal'
+        'Designers/principal',
+		'Designers/edit',
+		
+		'Artigos/index',
+		'Artigos/edit',
+		'Artigos/add',
+		'Artigos/delete'
+		
     ];
 
     public function beforeFilter(Event $event)

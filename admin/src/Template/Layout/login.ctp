@@ -31,9 +31,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->script('jquery-3.4.0.min') ?>
 
-    <?= $this->Html->css('jodit.min.css') ?>
-    <?= $this->Html->script('jodit.min.js') ?>
-
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
@@ -53,8 +50,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </nav>
     <?= $this->Flash->render() ?>
-	<h2>Bem-vind@ <?= h($usuario['nome']) ?></h2>
-	<?= $this->Html->link(__('Logout'),['controller'=>'Authentication', 'Action'=> 'login']) ?>
 	
     <div class="container clearfix">
         <?= $this->fetch('content') ?>

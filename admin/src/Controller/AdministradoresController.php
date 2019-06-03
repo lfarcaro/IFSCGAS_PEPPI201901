@@ -71,39 +71,33 @@ class AdministradoresController extends AppController
      */
     public function edit($id = null)
     {
-        $administrador = $this->Administradores->get($id, [
-            'contain' => []
-        ]);
-		
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $administrador = $this->Administradores->patchEntity($administrador, $this->request->getData());
-            
-            if (($this->request->getData('senha1') != "") || ($this->request->getData('senha2') != "")){
-              if ($this->request->getData('senha1') == $this->request->getData('senha2')){
-                $administrador->senha = $this->request->getData('senha1');
-                
-                if ($this->Administradores->save($administrador)) {
-                    $this->Flash->success(__('The administrador has been saved.'));
+		$administrador = $this->Administradores->get($id, [
+		'contain' => []
+		]);
 
-                    return $this->redirect(['action' => 'index']);
-                }
-                 $this->Flash->error(__('The administrador could not be saved. Please, try again.'));     
-              } else {
-                 $this->Flash->error(__('As senhas não coincidem.'));
-              }
+		if ($this->request->is(['patch', 'post', 'put'])) {
+			$administrador = $this->Administradores->patchEntity($administrador, $this->request->getData());
+			$salvar = true;
 
-            }
+			if (($this->request->getData('senha1') != "") || ($this->request->getData('senha2') != "")){
+				if ($this->request->getData('senha1') == $this->request->getData('senha2')){
+					$administrador->senha = $this->request->getData('senha1');
+				} else {
+					$salvar = false;
+					$this->Flash->error(__('As senhas não coincidem.'));
+				}
 
+			}
 
-            if ($salvar == true){
-                if ($this->Administradores->save($administrador)) {
-                    $this->Flash->success(__('The administrador has been saved.'));
+			if ($salvar == true){
+				if ($this->Administradores->save($administrador)) {
+					$this->Flash->success(__('The administrador has been saved.'));
 
-                    return $this->redirect(['action' => 'index']);
-                 }
-                $this->Flash->error(__('The administrador could not be saved. Please, try again.'));
-            }
-        }
+					return $this->redirect(['action' => 'index']);
+				}
+				$this->Flash->error(__('The administrador could not be saved. Please, try again.'));
+			}
+		}
         $this->set(compact('administrador'));
     }
 
