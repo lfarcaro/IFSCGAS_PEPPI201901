@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>PPI1 Layout do Website: Página "Projetos" + Janela de detalhes/fotografias</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/jquery-3.4.0.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/projetos.js"></script>
-</head>
-
-<body class="h-100">
+<?php
+include 'cabecalho.php';
+?>
   <section class="jumbotron">
     <div class="container">
       <!--Repetir a .row pra cada registro-->
@@ -102,6 +88,6 @@ Aenean faucibus est neque. Quisque nisl dui, elementum sed mi nec, imperdiet max
       </div>
     </div>
   </div>
-</body>
-
-</html>
+<?php
+include 'rodape.php';
+?>

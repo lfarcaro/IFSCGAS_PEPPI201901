@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>PPI1: Contato</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/jquery-3.4.0.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.mask.min.js" type="text/javascript"></script>
-  <script src="js/main.js"></script>
-</head>
-<body>
+<?php
+include 'cabecalho.php';
+?>
 	<div class="container contato">
 		<form class="form-contato form-row col-md-6">
 		  <h3 class="form-contato-titulo">Contate-nós</h3>
@@ -57,5 +44,6 @@
 		  </div>
 		</form>
 	</div>
-</body>
-</html>
+<?php
+include 'rodape.php';
+?>
