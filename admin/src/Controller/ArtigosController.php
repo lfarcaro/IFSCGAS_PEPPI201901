@@ -22,8 +22,15 @@ class ArtigosController extends AppController
         $this->paginate = [
             'contain' => ['Designers', 'Categorias']
         ];
-        $artigos = $this->paginate($this->Artigos);
-
+		
+		$usuario = $this->Auth->user();
+		
+		if($usuario['perfil'] == 'A'){
+			$artigos = $this->paginate($this->Artigos);	
+		}else if($usuario['perfil'] == 'D'){
+			$artigos = $this->paginate($this->Artigos->findByDesignerId($usuario['id']));
+		}
+       
         $this->set(compact('artigos'));
     }
 
@@ -53,6 +60,10 @@ class ArtigosController extends AppController
         $artigo = $this->Artigos->newEntity();
         if ($this->request->is('post')) {
             $artigo = $this->Artigos->patchEntity($artigo, $this->request->getData());
+			
+			$artigo->criacao = time();
+			$artigo->atualizacao = time();
+			
             if ($this->Artigos->save($artigo)) {
                 $this->Flash->success(__('The artigo has been saved.'));
 
@@ -60,8 +71,8 @@ class ArtigosController extends AppController
             }
             $this->Flash->error(__('The artigo could not be saved. Please, try again.'));
         }
-        $designers = $this->Artigos->Designers->find('list', ['limit' => 200]);
-        $categorias = $this->Artigos->Categorias->find('list', ['limit' => 200]);
+        $designers = $this->Artigos->Designers->find('list', ['keyField' => 'id', 'valueField' => 'nome', 'limit' => 200]);
+        $categorias = $this->Artigos->Categorias->find('list', ['keyField' => 'id', 'valueField' => 'nome', 'limit' => 200]);
         $this->set(compact('artigo', 'designers', 'categorias'));
     }
 
@@ -77,8 +88,20 @@ class ArtigosController extends AppController
         $artigo = $this->Artigos->get($id, [
             'contain' => []
         ]);
+		
+		$usuario = $this->Auth->user();
+		if($usuario['perfil'] == 'D'){
+			if($artigo->designer_id != $usuario['id']){
+				$this->Flash->error(__('O Artigo não pertence ao designer autenticado'));
+				return $this->redirect(['action' => 'index']);
+			}
+		}
+		
         if ($this->request->is(['patch', 'post', 'put'])) {
             $artigo = $this->Artigos->patchEntity($artigo, $this->request->getData());
+			
+			$artigo->atualizacao = time();
+			
             if ($this->Artigos->save($artigo)) {
                 $this->Flash->success(__('The artigo has been saved.'));
 
@@ -86,8 +109,8 @@ class ArtigosController extends AppController
             }
             $this->Flash->error(__('The artigo could not be saved. Please, try again.'));
         }
-        $designers = $this->Artigos->Designers->find('list', ['limit' => 200]);
-        $categorias = $this->Artigos->Categorias->find('list', ['limit' => 200]);
+        $designers = $this->Artigos->Designers->find('list', ['keyField' => 'id', 'valueField' => 'nome', 'limit' => 200]);
+        $categorias = $this->Artigos->Categorias->find('list', ['keyField' => 'id', 'valueField' => 'nome', 'limit' => 200]);
         $this->set(compact('artigo', 'designers', 'categorias'));
     }
 
@@ -99,14 +122,24 @@ class ArtigosController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
-    {
+    {	
         $this->request->allowMethod(['post', 'delete']);
-        $artigo = $this->Artigos->get($id);
-        if ($this->Artigos->delete($artigo)) {
-            $this->Flash->success(__('The artigo has been deleted.'));
-        } else {
-            $this->Flash->error(__('The artigo could not be deleted. Please, try again.'));
-        }
+        $artigo = $this->Artigos->get($id);	
+		
+		$usuario = $this->Auth->user();
+		if($usuario['perfil'] == 'D'){
+			if($artigo->designer_id != $usuario['id']){
+				$this->Flash->error(__('O Artigo não pertence ao designer autenticado'));
+				return $this->redirect(['action' => 'index']);
+			}
+		}
+		
+		if ($this->Artigos->delete($artigo)) {
+			$this->Flash->success(__('The artigo has been deleted.'));
+		} else {
+			$this->Flash->error(__('The artigo could not be deleted. Please, try again.'));
+		}
+		
 
         return $this->redirect(['action' => 'index']);
     }

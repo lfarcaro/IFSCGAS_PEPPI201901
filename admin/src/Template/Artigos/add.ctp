@@ -31,16 +31,23 @@
             echo $this->Form->control('nome');
             echo $this->Form->control('descricao_breve');
             echo $this->Form->control('descricao_completa');
-            echo $this->Form->control('disponibilidade');
+            echo $this->Form->control('disponibilidade',['options' => array("V" => __("Venda"),"D" =>__("Divulgação"))]);
             echo $this->Form->control('customizavel');
-            echo $this->Form->control('criacao');
-            echo $this->Form->control('atualizacao');
             echo $this->Form->control('variacoes_disponiveis');
             echo $this->Form->control('numero_visualizacoes');
             echo $this->Form->control('numero_favoritacoes');
             echo $this->Form->control('numero_compartilhamentos');
         ?>
     </fieldset>
+	<script>
+	$(function () {
+		var editor = new Jodit("#descricao-completa", {
+			"language": "pt_br",
+			"defaultMode": "1",
+			"buttons": "|,bold,underline,italic,|,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,image,file,video,table,link,|,align,undo,redo,\n,eraser,|,symbol,fullsize,selectall,print"
+		});
+	});
+	</script>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 </div>
