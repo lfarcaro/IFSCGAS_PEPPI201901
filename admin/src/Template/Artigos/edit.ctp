@@ -31,7 +31,9 @@
     <fieldset>
         <legend><?= __('Edit Artigo') ?></legend>
         <?php
-            echo $this->Form->control('designer_id', ['options' => $designers]);
+			if($usuario['perfil'] == 'A'){
+				echo $this->Form->control('designer_id', ['options' => $designers]);
+			}
             echo $this->Form->control('categoria_id', ['options' => $categorias]);
             echo $this->Form->control('codigo');
             echo $this->Form->control('nome');
