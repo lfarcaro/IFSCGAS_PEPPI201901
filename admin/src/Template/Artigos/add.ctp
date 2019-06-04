@@ -25,7 +25,9 @@
     <fieldset>
         <legend><?= __('Add Artigo') ?></legend>
         <?php
-            echo $this->Form->control('designer_id', ['options' => $designers]);
+			if($usuario['perfil'] == 'A'){
+				echo $this->Form->control('designer_id', ['options' => $designers]);
+			}
             echo $this->Form->control('categoria_id', ['options' => $categorias]);
             echo $this->Form->control('codigo');
             echo $this->Form->control('nome');
@@ -34,9 +36,6 @@
             echo $this->Form->control('disponibilidade',['options' => array("V" => __("Venda"),"D" =>__("Divulgação"))]);
             echo $this->Form->control('customizavel');
             echo $this->Form->control('variacoes_disponiveis');
-            echo $this->Form->control('numero_visualizacoes');
-            echo $this->Form->control('numero_favoritacoes');
-            echo $this->Form->control('numero_compartilhamentos');
         ?>
     </fieldset>
 	<script>

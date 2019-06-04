@@ -40,9 +40,6 @@
             echo $this->Form->control('disponibilidade',['options' => array("V" => __("Venda"),"D" =>__("Divulgação"))]);
             echo $this->Form->control('customizavel');
             echo $this->Form->control('variacoes_disponiveis');
-            echo $this->Form->control('numero_visualizacoes');
-            echo $this->Form->control('numero_favoritacoes');
-            echo $this->Form->control('numero_compartilhamentos');
         ?>
     </fieldset>
 	<script>

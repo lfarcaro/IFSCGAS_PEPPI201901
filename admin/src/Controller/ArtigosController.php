@@ -61,8 +61,16 @@ class ArtigosController extends AppController
         if ($this->request->is('post')) {
             $artigo = $this->Artigos->patchEntity($artigo, $this->request->getData());
 			
+			$usuario = $this->Auth->user();
+			if($usuario['perfil'] == 'D'){
+				$artigo->designer_id = $usuario['id'];
+			}
+			
 			$artigo->criacao = time();
 			$artigo->atualizacao = time();
+			$artigo->numero_visualizacoes = 0;
+			$artigo->numero_favoritacoes = 0;
+			$artigo->numero_compartilhamentos = 0;
 			
             if ($this->Artigos->save($artigo)) {
                 $this->Flash->success(__('The artigo has been saved.'));
