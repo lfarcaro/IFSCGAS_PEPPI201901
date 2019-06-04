@@ -40,7 +40,7 @@ class Artigo extends Entity
      * @var array
      */
     protected $_accessible = [
-        'designer_id' => true,
+        'designer_id' => false,
         'categoria_id' => true,
         'codigo' => true,
         'nome' => true,

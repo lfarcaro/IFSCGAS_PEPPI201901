@@ -62,7 +62,9 @@ class ArtigosController extends AppController
             $artigo = $this->Artigos->patchEntity($artigo, $this->request->getData());
 			
 			$usuario = $this->Auth->user();
-			if($usuario['perfil'] == 'D'){
+			if($usuario['perfil'] == 'A'){
+				$artigo->designer_id = $this->request->getData('designer_id');
+			}else if($usuario['perfil'] == 'D'){
 				$artigo->designer_id = $usuario['id'];
 			}
 			

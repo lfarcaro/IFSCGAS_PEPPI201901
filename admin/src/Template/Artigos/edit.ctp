@@ -32,7 +32,7 @@
         <legend><?= __('Edit Artigo') ?></legend>
         <?php
 			if($usuario['perfil'] == 'A'){
-				echo $this->Form->control('designer_id', ['options' => $designers]);
+				echo $this->Form->control('designer_id', ['options' => $designers,'disabled'=> true]);
 			}
             echo $this->Form->control('categoria_id', ['options' => $categorias]);
             echo $this->Form->control('codigo');
