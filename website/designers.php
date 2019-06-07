@@ -4,7 +4,7 @@ include 'cabecalho.php';
 <?php
 try {
     // Abre a conexão
-    $connection = new PDO("mysql:dbname=PE_PPI_201901;host=peppi.gaspar.ifsc.edu.br;charset=utf8", "PE_PPI_201901", "P3PPi201901");
+    $connection = new PDO($bd_stringConexao, $bd_usuario, $bd_senha);
 
 	$result = $connection->query("SELECT id, nome, curso, fase, apresentacao_breve, caminho_fotografia FROM designers ORDER BY nome");
 	if ($result !== false) {
