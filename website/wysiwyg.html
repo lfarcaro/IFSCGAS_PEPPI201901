@@ -5,34 +5,27 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-
-		<script src="js/jquery-3.4.0.min.js"></script>
-
-		<script src="js/popper.min.js"></script>
-
-		<script src="js/bootstrap.min.js"></script>
-
 		<title>PEPPI</title>
 
-		<link type="text/css" rel="stylesheet" href="css/jodit.min.css">
-
-		<script type="text/javascript" src="js/jodit.min.js"></script>
 	</head>
 
 	<body>
-		<script>
-			$(function () {
-				var editor = new Jodit("#editor", {
-			  "language": "pt_br",
-			  "defaultMode": "1",
-			  "buttons": "|,bold,underline,italic,|,|,ul,ol,|,outdent,indent,|,font,fontsize,brush,paragraph,|,image,file,video,table,link,|,align,undo,redo,\n,eraser,|,symbol,fullsize,selectall,print"
-			  });
-			});
-			
-		</script>
 
-		<textarea id="editor" name="editor"></textarea>
+		<link rel="stylesheet" href="css/jodit_3.1.39_jodit.min.css">
+		<script src="js/jodit_3.1.39_jodit.min.js"></script>
+
+		<textarea id="editor"></textarea>
+
+		<script>
+		  var editor = new Jodit("#editor", {
+			  "uploader": {
+			    "insertImageAsBase64URI": true
+			  },
+			  "language": "pt_br",
+			  "enter": "P",
+			  "defaultMode": "1"
+			});
+		</script>
 
 	</body>
 </html>
