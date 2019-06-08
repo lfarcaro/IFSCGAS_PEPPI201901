@@ -3,7 +3,7 @@ include 'cabecalho.php';
 ?>
 	<div class="container contato">
 		<form class="form-contato form-row col-md-6">
-		  <h3 class="form-contato-titulo">Contate-nós</h3>
+		  <h3 class="form-contato-titulo">Contate-nos</h3>
 		  
 		  <div class="form-row col-md-12">
 		     

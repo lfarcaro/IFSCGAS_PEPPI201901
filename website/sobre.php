@@ -1,20 +1,40 @@
 <?php
 include 'cabecalho.php';
 ?>
-	<div class="container">
-		<h3 class="sobre"> Sobre nós</h3>
-		
-		<p class="text-justify">
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-		</p>
-		<p class="text-justify">
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-		</p>
-		<p class="text-justify">
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-		</p>
-		<a class="btn btn-primary" href="Contato.html" role="button">Entrar em contato</a>
-	</div>
+<?php
+try {
+    // Abre a conexão
+    $connection = new PDO($bd_stringConexao, $bd_usuario, $bd_senha);
+
+	$result = $connection->query("SELECT conteudo FROM paginas WHERE identificador = 'PAGINA_SOBRENOS'");
+	if ($result !== false) {
+		// Obtém linha
+		$row = $result->fetch();
+		if ($row !== false) {
+?>
+<div class="container">
+	<h3 class="sobre"> Sobre nós</h3>
+	<br>
+	<?= $row["conteudo"] ?>
+	<br>
+	<a class="btn btn-primary" href="contato.php" role="button">Entrar em contato</a>
+</div>
+<?php
+		} else {
+			echo "Resultado: Nenhum registro retornado.";
+		}
+		$result = null; // Libera o resultado
+	} else {
+		echo "Resultado: A seleção falhou!";
+	}
+
+    // Fecha a conexão
+    $connection = null;
+} catch (PDOException $e) {
+    // Exceção foi lançada (um erro ocorreu)
+	echo "Conexão falhou: " . $e->getMessage();
+}
+?>
 <?php
 include 'rodape.php';
 ?>
