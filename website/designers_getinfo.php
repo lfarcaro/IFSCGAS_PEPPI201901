@@ -8,7 +8,7 @@ try {
     // Abre a conexão
     $connection = new PDO($bd_stringConexao, $bd_usuario, $bd_senha);
 
-	$result = $connection->query("SELECT id, nome, curso, fase, apresentacao_detalhada, caminho_fotografia FROM designers WHERE id = " . $id);
+	$result = $connection->query("SELECT id, nome, curso, fase, apresentacao_detalhada, caminho_fotografia FROM designers WHERE id = " . $connection->quote($id));
 	if ($result !== false) {
 		// Obtém linha
 		$row = $result->fetch();
