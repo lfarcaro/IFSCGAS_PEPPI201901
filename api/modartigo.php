@@ -20,7 +20,6 @@ class ModArtigo
 		$sql = 'select id, nome, descricao from categorias';
 		$resultado = $conn->query($sql);
 		$retorno = array();
-		echo var_dump($resultado);
 		foreach ($resultado as $linha) {
 		 	$retorno[] = $linha;
 		 }
@@ -168,18 +167,4 @@ class ModArtigo
 
 	}
 }
-//Feitos
-//+obterCategorias(): array     
-//+obterArtigos(in stBusca:string, in idaArtigoCategoria:array, in fgDisponibilidade:string, in fgOrdenacao:string): array 
-//+obterArtigosAleatorios(in inNumero:int): array
-//+proporCustomizacao(in idArtigo:int, in stNome:string, in stEmail:string, in stTelefone:string, in stCelular:string, in blCelularWhatsapp:boolean, in stCustomizacao:string): boolean 
-//+registrarVisualizacao(in idArtigo:int)
-//+registrarFavoritacao(in idArtigo:int) 
-//+contatarDesigner(in idArtigo:int, in stNome:string, in stEmail:string, in stTelefone:string, in stCel:string, in blCelWhatsapp:boolean, in stVariacoesEscolhidas:string, in stMsg:string): boolean
-//+registrarCompartilhamento(in idArtigo:int)
-//+obterDetalhesArtigo(in idArtigo:int, in stCodigo:string): array
-
-//Não feitos
-
-
 ?>
