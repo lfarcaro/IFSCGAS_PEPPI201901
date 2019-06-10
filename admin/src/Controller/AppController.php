@@ -79,7 +79,8 @@ class AppController extends Controller
 		'Artigos/index',
 		'Artigos/edit',
 		'Artigos/add',
-		'Artigos/delete',	
+		'Artigos/delete',
+		'Artigos/fotografiaIndex',		
 		'Desfiles/index',
 		'Desfiles/edit',
 		'Desfiles/add',
@@ -102,7 +103,8 @@ class AppController extends Controller
 		'Artigos/index',
 		'Artigos/edit',
 		'Artigos/add',
-		'Artigos/delete'
+		'Artigos/delete',
+		'Artigos/fotografiaIndex'
 		
     ];
 

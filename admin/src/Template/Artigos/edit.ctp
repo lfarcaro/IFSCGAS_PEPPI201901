@@ -55,4 +55,18 @@
 	</script>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+	<hr>
+	<div id="divAJAX"></div>
+	<input type = "button" value = "AJAX" id= "btnAJAX">
+	<script>
+	$('#btnAJAX').click(function(){
+		$.ajax({
+			url: '<?= $this->Html->Url->build(['action' => 'fotografiaIndex']) ?>/<?= $artigo->id ?>',
+			dataType: 'json'
+		}).done(function(response){
+			$('#divAJAX').html(response);
+		})
+	});
+	</script>
+	</div>
 </div>
