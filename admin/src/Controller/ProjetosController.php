@@ -23,6 +23,22 @@ class ProjetosController extends AppController
 
         $this->set(compact('projetos'));
     }
+	
+	public function fotografiaIndex($id)
+    {
+     //$this->request-allowMethod(['post','delete']);
+	 //$projetos = $this->Projetos->get($id);
+	 $this->loadModel('ProjetoFotografias');
+	 
+	 $projetoFotografias = $this->ProjetoFotografias->find()
+		->where(['projeto_id' => $id])
+		->order(['ordem' => 'ASC']);
+	 
+	 $this->set('result',$projetoFotografias);
+	 
+	 $this->render('ajax','ajax');
+
+    }
 
     /**
      * Add method

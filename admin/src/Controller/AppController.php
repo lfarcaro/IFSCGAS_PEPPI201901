@@ -88,6 +88,7 @@ class AppController extends Controller
 		'Projetos/index',
 		'Projetos/edit',
 		'Projetos/add',
+		'Projetos/fotografiaIndex',
 		'Projetos/delete',
 		'Paginas/index',
 		'Paginas/edit'
