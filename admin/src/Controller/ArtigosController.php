@@ -153,4 +153,17 @@ class ArtigosController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+	
+	public function fotografiaIndex($id)
+	{
+		//$this->request->allowMethod(['ajax']);
+		$this->loadModel('ArtigoFotografias');
+		
+		$artigoFotografias = $this->ArtigoFotografias->find()
+		->where(['artigo_id' => $id])
+		->order(['ordem' => 'ASC']);
+		
+		$this->set('result',$artigoFotografias);
+		$this->render('ajax','ajax');
+	}
 }
