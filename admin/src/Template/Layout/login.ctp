@@ -29,7 +29,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('style.css') ?>
 
-    <?= $this->Html->script('jquery-3.4.0.min') ?>
+	<?= $this->Html->script('jquery-3.4.0.min') ?>
+
+	<?= $this->Html->css('bootstrap.min.css') ?>
+	<?= $this->Html->script('popper.min') ?>
+	<?= $this->Html->script('bootstrap.min') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
