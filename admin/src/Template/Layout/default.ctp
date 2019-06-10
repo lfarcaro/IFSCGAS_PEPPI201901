@@ -35,6 +35,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->Html->script('popper.min') ?>
 	<?= $this->Html->script('bootstrap.min') ?>
 
+	<?= $this->Html->css('bootstrap-table.min.css') ?>
+	<?= $this->Html->script('bootstrap-table.min') ?>
+
     <?= $this->Html->css('jodit.min.css') ?>
     <?= $this->Html->script('jodit.min.js') ?>
 
