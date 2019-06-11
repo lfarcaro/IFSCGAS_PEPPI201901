@@ -77,6 +77,46 @@
 	</table>
 	<input type = "button" value = "AJAX" id= "btnAJAX">
 	<script>
+	
+	function cmdListagemFotografiasAcaoCima(id){
+		$.ajax({
+			url: '<?= $this->Html->Url->build(['action' => 'fotografiaCima']) ?>/'+ id,
+			dataType: 'json'
+		}).done(function(response){
+			if(!response.success){
+				alert(response.message);
+			}
+			$('#tblListagemFotografias').bootstrapTable('refresh', {silent:true});
+		})
+	}
+	
+	function cmdListagemFotografiasAcaoBaixo(id){
+		$.ajax({
+			url: '<?= $this->Html->Url->build(['action' => 'fotografiaBaixo']) ?>/'+ id,
+			dataType: 'json'
+		}).done(function(response){
+			if(!response.success){
+				alert(response.message);
+			}
+			$('#tblListagemFotografias').bootstrapTable('refresh', {silent:true});
+		})
+	}
+	
+	function cmdListagemFotografiasAcaoExcluir(id){
+		if(!confirm(<?= json_encode(__('Deseja realmente excluir a fotografia?')) ?>)){
+			return;
+		}
+		$.ajax({
+			url: '<?= $this->Html->Url->build(['action' => 'fotografiaExcluir']) ?>/'+ id,
+			dataType: 'json'
+		}).done(function(response){
+			if(!response.success){
+				alert(response.message);
+			}
+			$('#tblListagemFotografias').bootstrapTable('refresh', {silent:true});
+		})
+	}
+	
 	$('#btnAJAX').click(function(){
 		$.ajax({
 			url: '<?= $this->Html->Url->build(['action' => 'fotografiaIndex']) ?>/<?= $artigo->id ?>',

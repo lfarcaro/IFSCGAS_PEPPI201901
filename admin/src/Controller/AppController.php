@@ -80,7 +80,10 @@ class AppController extends Controller
 		'Artigos/edit',
 		'Artigos/add',
 		'Artigos/delete',
-		'Artigos/fotografiaIndex',		
+		'Artigos/fotografiaIndex',
+		'Artigos/fotografiaCima',
+		'Artigos/fotografiaBaixo',
+		'Artigos/fotografiaExcluir',
 		'Desfiles/index',
 		'Desfiles/edit',
 		'Desfiles/add',
@@ -104,8 +107,10 @@ class AppController extends Controller
 		'Artigos/edit',
 		'Artigos/add',
 		'Artigos/delete',
-		'Artigos/fotografiaIndex'
-		
+		'Artigos/fotografiaIndex',
+		'Artigos/fotografiaCima',
+		'Artigos/fotografiaBaixo',
+		'Artigos/fotografiaExcluir'
     ];
 
     public function beforeFilter(Event $event)

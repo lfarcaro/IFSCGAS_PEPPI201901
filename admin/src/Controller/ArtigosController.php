@@ -166,4 +166,113 @@ class ArtigosController extends AppController
 		$this->set('result',$artigoFotografias);
 		$this->render('ajax','ajax');
 	}
+	
+	public function fotografiaCima($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('ArtigoFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		// Busca entidade a ser movida
+		$artigoFotografia = $this->ArtigoFotografias->get($id);
+
+		// Busca todas as entidades
+		$artigoFotografias = $this->ArtigoFotografias->find()->where(['artigo_id' => $artigoFotografia->artigo_id])->order(['ordem' => 'ASC'])->toArray();
+
+		// Busca a entidade a ser movida no vetor
+		foreach ($artigoFotografias as $indice => $artigoFotografia) {
+			if ($artigoFotografia->id == $id) {
+				if ($indice > 0) {
+					$ordemTemp = $artigoFotografias[$indice-1]->ordem;
+					$artigoFotografias[$indice-1]->ordem = $artigoFotografias[$indice]->ordem;
+					$artigoFotografias[$indice]->ordem = $ordemTemp;
+					if ($this->ArtigoFotografias->save($artigoFotografias[$indice])) {
+						if ($this->ArtigoFotografias->save($artigoFotografias[$indice-1])) {
+							$success = true;
+							$message = __('Sucesso');
+						} else {
+							$message = __('Erro ao salvar entidade próxima');
+						}
+					} else {
+						$message = __('Erro ao salvar entidade próxima');
+					}
+				} else {
+					$success = true;
+					$message = __('Sucesso');
+				}
+				break;
+			}
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
+
+    public function fotografiaBaixo($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('ArtigoFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		// Busca entidade a ser movida
+		$artigoFotografia = $this->ArtigoFotografias->get($id);
+
+		// Busca todas as entidades
+		$artigoFotografias = $this->ArtigoFotografias->find()->where(['artigo_id' => $artigoFotografia->artigo_id])->order(['ordem' => 'ASC'])->toArray();
+
+		// Busca a entidade a ser movida no vetor
+		foreach ($artigoFotografias as $indice => $artigoFotografia) {
+			if ($artigoFotografia->id == $id) {
+				if ($indice < (count($artigoFotografias)-1)) {
+					$ordemTemp = $artigoFotografias[$indice+1]->ordem;
+					$artigoFotografias[$indice+1]->ordem = $artigoFotografias[$indice]->ordem;
+					$artigoFotografias[$indice]->ordem = $ordemTemp;
+					if ($this->ArtigoFotografias->save($artigoFotografias[$indice])) {
+						if ($this->ArtigoFotografias->save($artigoFotografias[$indice+1])) {
+							$success = true;
+							$message = __('Sucesso');
+						} else {
+							$message = __('Erro ao salvar entidade próxima');
+						}
+					} else {
+						$message = __('Erro ao salvar entidade próxima');
+					}
+				} else {
+					$success = true;
+					$message = __('Sucesso');
+				}
+				break;
+			}
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
+	
+	 public function fotografiaExcluir($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('ArtigoFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		$artigoFotografia = $this->ArtigoFotografias->get($id);
+		if ($this->ArtigoFotografias->delete($artigoFotografia)) {
+
+			//@unlink(WEBSITE_IMAGE_PATH_ARTIGOSFOTOGRAFIAS . DS . $artigoFotografia->caminho_arquivo);
+
+            $success = true;
+			$message = __('Sucesso');
+        } else {
+			$message = __('Erro ao remover fotografia');
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
 }
