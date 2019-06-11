@@ -56,7 +56,25 @@
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
 	<hr>
-	<div id="divAJAX"></div>
+	<script>
+		function fmtListagemFotografiasAcoes (value, row, index) {
+			return [
+				'<img src="<?= $this->Url->image('up.png') ?>" onclick="cmdListagemFotografiasAcaoCima(' + row.id + ')" style="cursor: pointer">',
+				'&nbsp;',
+				'<img src="<?= $this->Url->image('down.png') ?>" onclick="cmdListagemFotografiasAcaoBaixo(' + row.id + ')" style="cursor: pointer">',
+				'&nbsp;',
+				'<img src="<?= $this->Url->image('delete.png') ?>" onclick="cmdListagemFotografiasAcaoExcluir(' + row.id + ')" style="cursor: pointer">'
+			].join('');
+		}
+	</script>
+	<table id="tblListagemFotografias" data-toggle="table" data-url="<?= $this->Html->Url->build(['action' => 'fotografiaIndex', $artigo->id]) ?>" class="table-striped">
+		<thead class="thead-light">
+			<tr>
+				<th data-field="nome_arquivo" data-escape="true"><?= h(__('Arquivo')) ?></th>
+				<th data-field="acoes" data-width="100px" data-align="center" data-formatter="fmtListagemFotografiasAcoes"><?= h(__('Ações')) ?></th>
+			</tr>
+		</thead>
+	</table>
 	<input type = "button" value = "AJAX" id= "btnAJAX">
 	<script>
 	$('#btnAJAX').click(function(){
@@ -68,5 +86,4 @@
 		})
 	});
 	</script>
-	</div>
 </div>
