@@ -85,6 +85,7 @@ class AppController extends Controller
 		'Desfiles/edit',
 		'Desfiles/add',
 		'Desfiles/delete',
+        'Desfiles/fotografiaIndex',  
 		'Projetos/index',
 		'Projetos/edit',
 		'Projetos/add',

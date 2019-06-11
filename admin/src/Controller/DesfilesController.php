@@ -135,4 +135,132 @@ class DesfilesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function fotografiaIndex($id){
+    	//$this->request->allowMethod(['ajax']);
+    	$this ->loadModel('DesfileFotografias');
+
+    	$desfileFotografias = $this->DesfileFotografias->find()
+    		->where(['desfile_id' =>$id])
+    		->order(['ordem' => 'ASC']);
+    	$this-> set('result', $desfileFotografias);
+    	$this-> render('ajax', 'ajax');
+
+    }
+
 }
+/*
+*delete method
+*/
+public function fotografiaExcluir($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('DesfileFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		$desfileFotografia = $this->DesfileFotografias->get($id);
+		if ($this->DesfileFotografias->delete($desfileFotografia)) {
+
+			//@unlink(WEBSITE_IMAGE_PATH_ARTIGOSFOTOGRAFIAS . DS . $desfileFotografia->caminho_arquivo);
+
+            $success = true;
+			$message = __('Sucesso');
+        } else {
+			$message = __('Erro ao remover fotografia');
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
+	
+
+	//fotografia para cima
+
+	    public function fotografiaCima($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('DesfileFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		// Busca entidade a ser movida
+		$desfileFotografia = $this->DesfileFotografias->get($id);
+
+		// Busca todas as entidades
+		$desfileFotografias = $this->DesfileFotografias->find()->where(['artigo_id' => $desfileFotografia->desfile_id])->order(['ordem' => 'ASC'])->toArray();
+
+		// Busca a entidade a ser movida no vetor
+		foreach ($desfileFotografias as $indice => $desfileFotografia) {
+			if ($desfileFotografia->id == $id) {
+				if ($indice > 0) {
+					$ordemTemp = $desfileFotografias[$indice-1]->ordem;
+					$desfileFotografias[$indice-1]->ordem = $desfileFotografias[$indice]->ordem;
+					$desfileFotografias[$indice]->ordem = $ordemTemp;
+					if ($this->desfileFotografias->save($desfileFotografias[$indice])) {
+						if ($this->DesfileFotografias->save($desfileFotografias[$indice-1])) {
+							$success = true;
+							$message = __('Sucesso');
+						} else {
+							$message = __('Erro ao salvar entidade próxima');
+						}
+					} else {
+						$message = __('Erro ao salvar entidade próxima');
+					}
+				} else {
+					$success = true;
+					$message = __('Sucesso');
+				}
+				break;
+			}
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
+
+    public function fotografiaBaixo($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('DesfileFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		// Busca entidade a ser movida
+		$desfileFotografia = $this->desfileFotografias->get($id);
+
+		// Busca todas as entidades
+		$desfileFotografias = $this->desfileFotografias->find()->where(['desfile_id' => $desfileFotografia->desfile_id])->order(['ordem' => 'ASC'])->toArray();
+
+		// Busca a entidade a ser movida no vetor
+		foreach ($desfileFotografias as $indice => $desfileFotografia) {
+			if ($desfileFotografia->id == $id) {
+				if ($indice < (count($desfileFotografias)-1)) {
+					$ordemTemp = $desfileFotografias[$indice+1]->ordem;
+					$desfileFotografias[$indice+1]->ordem = $desfileFotografias[$indice]->ordem;
+					$desfileFotografias[$indice]->ordem = $ordemTemp;
+					if ($this->desfileFotografias->save($desfileFotografias[$indice])) {
+						if ($this->DesfileFotografias->save($desfileFotografias[$indice+1])) {
+							$success = true;
+							$message = __('Sucesso');
+						} else {
+							$message = __('Erro ao salvar entidade próxima');
+						}
+					} else {
+						$message = __('Erro ao salvar entidade próxima');
+					}
+				} else {
+					$success = true;
+					$message = __('Sucesso');
+				}
+				break;
+			}
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
+
+    
