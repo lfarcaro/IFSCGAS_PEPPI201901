@@ -39,7 +39,115 @@ class ProjetosController extends AppController
 	 $this->render('ajax','ajax');
 
     }
+	 public function fotografiaCima($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('ProjetoFotografias');
 
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		// Busca entidade a ser movida
+		$projetoFotografia = $this->ProjetoFotografias->get($id);
+
+		// Busca todas as entidades
+		$projetoFotografias = $this->ProjetoFotografias->find()->where(['projeto_id' => $artigoFotografia->projeto_id])->order(['ordem' => 'ASC'])->toArray();
+
+		// Busca a entidade a ser movida no vetor
+		foreach ($projetoFotografias as $indice => $projetoFotografia) {
+			if ($projetoFotografia->id == $id) {
+				if ($indice > 0) {
+					$ordemTemp = $projetoFotografias[$indice-1]->ordem;
+					$projetoFotografias[$indice-1]->ordem = $projetoFotografias[$indice]->ordem;
+					$projetoFotografias[$indice]->ordem = $ordemTemp;
+					if ($this->ProjetoFotografias->save($projetoFotografias[$indice])) {
+						if ($this->ProjetoFotografias->save($projetoFotografias[$indice-1])) {
+							$success = true;
+							$message = __('Sucesso');
+						} else {
+							$message = __('Erro ao salvar entidade próxima');
+						}
+					} else {
+						$message = __('Erro ao salvar entidade próxima');
+					}
+				} else {
+					$success = true;
+					$message = __('Sucesso');
+				}
+				break;
+			}
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
+
+    public function fotografiaBaixo($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('ProjetoFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		// Busca entidade a ser movida
+		$projetoFotografia = $this->ProjetoFotografias->get($id);
+
+		// Busca todas as entidades
+		$projetoFotografias = $this->ProjetoFotografias->find()->where(['projeto_id' => $artigoFotografia->projeto_id])->order(['ordem' => 'ASC'])->toArray();
+
+		// Busca a entidade a ser movida no vetor
+		foreach ($projetoFotografias as $indice => $projetoFotografia) {
+			if ($projetoFotografia->id == $id) {
+				if ($indice < (count($projetoFotografias)-1)) {
+					$ordemTemp = $projetoFotografias[$indice+1]->ordem;
+					$projetoFotografias[$indice+1]->ordem = $projetoFotografias[$indice]->ordem;
+					$projetoFotografias[$indice]->ordem = $ordemTemp;
+					if ($this->ProjetoFotografias->save($projetoFotografias[$indice])) {
+						if ($this->ProjetoFotografias->save($projetoFotografias[$indice+1])) {
+							$success = true;
+							$message = __('Sucesso');
+						} else {
+							$message = __('Erro ao salvar entidade próxima');
+						}
+					} else {
+						$message = __('Erro ao salvar entidade próxima');
+					}
+				} else {
+					$success = true;
+					$message = __('Sucesso');
+				}
+				break;
+			}
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
+
+
+	public function fotografiaExcluir($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('ProjetoFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		$projetoFotografias = $this->ProjetoFotografias->get($id);
+		if ($this->ProjetoFotografias->delete($projetoFotografias)) {
+
+			//@unlink(WEBSITE_IMAGE_PATH_ARTIGOSFOTOGRAFIAS . DS . $projetoFotografias->caminho_arquivo);
+
+            $success = true;
+			$message = __('Sucesso');
+        } else {
+			$message = __('Erro ao remover fotografia');
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
+	}
     /**
      * Add method
      *
@@ -103,4 +211,5 @@ class ProjetosController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+	
 }
