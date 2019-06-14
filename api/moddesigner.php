@@ -1,6 +1,4 @@
 <?php
-include('conexao.php');
-
 /**
 * 
 */
@@ -10,7 +8,7 @@ class ModDesigner
 		$arrayName = array();
 		$conexao = new conexao();
 		$conn = $conexao->connect();
-		$sql = 'select * from designers';
+		$sql = 'select * from designers order by nome';
 		$resultado = $conn->query($sql);
 		$retorno = array();
 		foreach ($resultado as $linha) {

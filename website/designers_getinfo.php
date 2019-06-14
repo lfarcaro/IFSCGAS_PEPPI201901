@@ -1,46 +1,26 @@
 <?php
-require "config.php";
+require "../api/api.php";
 
 // Obtém id do designer
 $id = $_GET["id"];
 
-try {
-    // Abre a conexão
-    $connection = new PDO($bd_stringConexao, $bd_usuario, $bd_senha);
-
-	$result = $connection->query("SELECT id, nome, curso, fase, apresentacao_detalhada, caminho_fotografia FROM designers WHERE id = " . $connection->quote($id));
-	if ($result !== false) {
-		// Obtém linha
-		$row = $result->fetch();
-		if ($row !== false) {
+$modDesigner = new ModDesigner();
+$designers = $modDesigner->obterDetalhesDesigner($id);
+if (count($designers) == 1) {
+	$designer = $designers[0];
 ?>
 {
 	"erro" : null,
-	"nome" : <?= json_encode($row["nome"]) ?>,
-	"curso" : <?= json_encode($row["curso"]) ?>,
-	"fase" : <?= json_encode($row["fase"]) ?>,
-	"apresentacao_detalhada" : <?= json_encode($row["apresentacao_detalhada"]) ?>,
-	"caminho_fotografia" : <?= json_encode($row["caminho_fotografia"]) ?>
+	"nome" : <?= json_encode($designer["nome"]) ?>,
+	"curso" : <?= json_encode($designer["curso"]) ?>,
+	"fase" : <?= json_encode($designer["fase"]) ?>,
+	"apresentacao_detalhada" : <?= json_encode($designer["apresentacao_detalhada"]) ?>,
+	"caminho_fotografia" : <?= json_encode($designer["caminho_fotografia"]) ?>
 }
 <?php
-		} else {
+} else {
 ?>
-{ "erro" : <?= json_encode("Resultado: Nenhum registro retornado.") ?> }
-<?php
-		}
-		$result = null; // Libera o resultado
-	} else {
-?>
-{ "erro" : <?= json_encode("Resultado: A seleção falhou!") ?> }
-<?php
-	}
-
-    // Fecha a conexão
-    $connection = null;
-} catch (PDOException $e) {
-    // Exceção foi lançada (um erro ocorreu)
-?>
-{ "erro" : <?= json_encode("Conexão falhou: " . $e->getMessage()) ?> }
+{ "erro" : <?= json_encode("Resultado: O designer não foi encontrado.") ?> }
 <?php
 }
 ?>
