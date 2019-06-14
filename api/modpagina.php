@@ -7,7 +7,7 @@ class ModPagina
 	function obterPagina(string $stIdentificador){
         $conexao = new conexao();
 		$con = $conexao->connect();
-		$sql = 'select * from paginas where id = :stIdentificador';
+		$sql = 'select * from paginas where identificador = :stIdentificador';
 		$stmt = $con->prepare($sql);
 		$stmt->bindParam(':stIdentificador', $stIdentificador);
 		$stmt->execute();
