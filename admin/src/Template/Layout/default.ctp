@@ -41,6 +41,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('jodit.min.css') ?>
     <?= $this->Html->script('jodit.min.js') ?>
 
+	<?= $this->Html->css('jquery.fileupload.css') ?>
+	<?= $this->Html->script('jquery-ui.min.js') ?>
+	<?= $this->Html->script('jquery.iframe-transport.js') ?>
+	<?= $this->Html->script('jquery.fileupload.js') ?>
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
