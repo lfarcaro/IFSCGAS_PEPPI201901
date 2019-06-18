@@ -4,13 +4,10 @@
  * @var \App\Model\Entity\Pagina[]|\Cake\Collection\CollectionInterface $paginas
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-    </ul>
-</nav>
 <div class="paginas index large-9 medium-8 columns content">
-    <h3><?= __('Paginas') ?></h3>
+    <h3><?= __('Paginas') ?>
+        <?= $this->Html->link(__('Nova página'), ['action' => 'add'], ['class' => 'btn btn-success float-right']) ?>
+    </h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

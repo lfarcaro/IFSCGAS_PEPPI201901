@@ -4,16 +4,10 @@
  * @var \App\Model\Entity\Designer[]|\Cake\Collection\CollectionInterface $designers
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Designer'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Artigos'), ['controller' => 'Artigos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Artigo'), ['controller' => 'Artigos', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="designers index large-9 medium-8 columns content">
-    <h3><?= __('Designers') ?></h3>
+    <h3><?= __('Designers') ?>
+        <?= $this->Html->link(__('Novo Designer'), ['action' => 'add'], ['class' => 'btn btn-success float-right']) ?>
+    </h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

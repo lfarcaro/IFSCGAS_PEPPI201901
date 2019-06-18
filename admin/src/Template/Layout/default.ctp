@@ -69,6 +69,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->Html->link(__('Logout'),['controller'=>'Authentication', 'Action'=> 'login']) ?>
 	
     <div class="container clearfix">
+        <nav class="large-3 medium-4 columns" id="actions-sidebar">
+            <ul class="side-nav">
+                <li class="heading"><?= __('Actions') ?></li>
+                <li><?= $this->Html->link(__('Administradores'), ['controller' => 'Administradores', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Designers'), ['controller' => 'Designers', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Categorias'), ['controller' => 'Categorias', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Artigos'), ['controller' => 'Artigos', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Projetos'), ['controller' => 'Projetos', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Desfiles'), ['controller' => 'Desfiles', 'action' => 'index']) ?></li>
+                <li><?= $this->Html->link(__('Páginas'), ['controller' => 'Paginas', 'action' => 'index']) ?></li>
+            </ul>
+        </nav>
         <?= $this->fetch('content') ?>
     </div>
     <footer>

@@ -4,14 +4,6 @@
  * @var \App\Model\Entity\Projeto $projeto
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Projetos'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Projeto Fotografias'), ['controller' => 'ProjetoFotografias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Projeto Fotografia'), ['controller' => 'ProjetoFotografias', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="projetos form large-9 medium-8 columns content">
     <?= $this->Form->create($projeto) ?>
     <fieldset>
