@@ -11,9 +11,9 @@ if (count($designers) == 1) {
 ?>
 {
 	"erro" : null,
-	"nome" : <?= json_encode($designer["nome"]) ?>,
-	"curso" : <?= json_encode($designer["curso"]) ?>,
-	"fase" : <?= json_encode($designer["fase"]) ?>,
+	"nome" : <?= json_encode(htmlspecialchars($designer["nome"])) ?>,
+	"curso" : <?= json_encode(htmlspecialchars($designer["curso"])) ?>,
+	"fase" : <?= json_encode(htmlspecialchars($designer["fase"])) ?>,
 	"apresentacao_detalhada" : <?= json_encode($designer["apresentacao_detalhada"]) ?>,
 	"caminho_fotografia" : <?= json_encode($designer["caminho_fotografia"]) ?>
 }
