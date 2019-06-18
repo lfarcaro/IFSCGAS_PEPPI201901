@@ -4,14 +4,10 @@
  * @var \App\Model\Entity\Administrador[]|\Cake\Collection\CollectionInterface $administradores
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Administrador'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="administradores index large-9 medium-8 columns content">
-    <h3><?= __('Administradores') ?></h3>
+    <h3><?= __('Administradores') ?>
+        <?= $this->Html->link(__('Novo administrador'), ['action' => 'add'], ['class' => 'btn btn-success float-right']) ?>
+    </h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

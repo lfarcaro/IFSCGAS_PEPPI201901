@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\Configure;
 
 /**
  * Artigos Controller
@@ -83,6 +84,7 @@ class ArtigosController extends AppController
         }
         $designers = $this->Artigos->Designers->find('list', ['keyField' => 'id', 'valueField' => 'nome', 'limit' => 200]);
         $categorias = $this->Artigos->Categorias->find('list', ['keyField' => 'id', 'valueField' => 'nome', 'limit' => 200]);
+		
         $this->set(compact('artigo', 'designers', 'categorias'));
     }
 
@@ -121,6 +123,7 @@ class ArtigosController extends AppController
         }
         $designers = $this->Artigos->Designers->find('list', ['keyField' => 'id', 'valueField' => 'nome', 'limit' => 200]);
         $categorias = $this->Artigos->Categorias->find('list', ['keyField' => 'id', 'valueField' => 'nome', 'limit' => 200]);
+		$this->set('caminhoFotografias', Configure::read('Uploads.url_imagens') . 'fotografias/artigos/');
         $this->set(compact('artigo', 'designers', 'categorias'));
     }
 
@@ -165,6 +168,55 @@ class ArtigosController extends AppController
 		
 		$this->set('result',$artigoFotografias);
 		$this->render('ajax','ajax');
+	}
+	
+	 public function fotografiaAdd($id = null)
+	{
+		$this->request->allowMethod(['ajax']);
+		$this->loadModel('ArtigoFotografias');
+
+		$success = false;
+		$message = __('Erro desconhecido');
+
+		$fotografia = $this->request->data['fotografia'];
+		if (!empty($fotografia['name'])) {
+
+			// Obtém a maior ordem já inserida
+			$query = $this->ArtigoFotografias->query();
+			$maxOrdem = $query->select(['ordem' => $query->func()->max('ordem')])->where(['artigo_id' => $id])->first();
+
+			$artigoFotografia = $this->ArtigoFotografias->newEntity();
+			$artigoFotografia->artigo_id = $id;
+			$artigoFotografia->ordem = ($maxOrdem ? $maxOrdem->ordem + 1 : 1);
+			$artigoFotografia->nome_arquivo = $fotografia['name'];
+			$artigoFotografia->caminho_arquivo = "";
+			if ($this->ArtigoFotografias->save($artigoFotografia)) {
+				$extensao = strtolower(pathinfo($fotografia['name'], PATHINFO_EXTENSION));
+				$artigoFotografia->caminho_arquivo = $artigoFotografia->artigo_id . "_" . $artigoFotografia->id . "." . $extensao;
+				@mkdir(Configure::read('Uploads.imagens') . 'fotografias/artigos', 0777, true);
+				if (@move_uploaded_file($fotografia['tmp_name'], Configure::read('Uploads.imagens') . 'fotografias/artigos/' . $artigoFotografia->caminho_arquivo)) {
+					if ($this->ArtigoFotografias->save($artigoFotografia)) {
+						$success = true;
+						$message = __('Sucesso');
+					} else {
+						@$this->ArtigoFotografias->delete($artigoFotografia);
+						@unlink(Configure::read('Uploads.imagens') . 'fotografias/artigos/' . $artigoFotografia->caminho_arquivo);
+						$message = __('Erro ao registrar arquivo');
+					}
+				} else {
+					@$this->ArtigoFotografias->delete($artigoFotografia);
+					@unlink(Configure::read('Uploads.imagens') . 'fotografias/artigos/'. $artigoFotografia->caminho_arquivo);
+					$message = __('Erro ao mover arquivo');
+				}
+			} else {
+				$message = __('Erro ao registrar fotografia');
+			}
+		} else {
+			$message = __('Arquivo inválido');
+		}
+
+		$this->set('result', compact('success', 'message'));
+		$this->render('ajax');
 	}
 	
 	public function fotografiaCima($id = null)

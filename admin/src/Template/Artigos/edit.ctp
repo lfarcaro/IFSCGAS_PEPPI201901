@@ -18,12 +18,6 @@
         <li><?= $this->Html->link(__('New Designer'), ['controller' => 'Designers', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Categorias'), ['controller' => 'Categorias', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Categoria'), ['controller' => 'Categorias', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Artigo Fotografias'), ['controller' => 'ArtigoFotografias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Artigo Fotografia'), ['controller' => 'ArtigoFotografias', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Log Contatodesigners'), ['controller' => 'LogContatodesigners', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Log Contatodesigner'), ['controller' => 'LogContatodesigners', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Log Customizacoes'), ['controller' => 'LogCustomizacoes', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Log Customizaco'), ['controller' => 'LogCustomizacoes', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="artigos form large-9 medium-8 columns content">
@@ -66,16 +60,22 @@
 				'<img src="<?= $this->Url->image('delete.png') ?>" onclick="cmdListagemFotografiasAcaoExcluir(' + row.id + ')" style="cursor: pointer">'
 			].join('');
 		}
+		function fmtListagemFotografiasPrevia (value, row, index) {
+			return [
+				'<img src="<?= $caminhoFotografias ?>' + row.caminho_arquivo + ' " style="max-width: 30px; max-height: 30px">',
+			].join('');
+		}
 	</script>
 	<table id="tblListagemFotografias" data-toggle="table" data-url="<?= $this->Html->Url->build(['action' => 'fotografiaIndex', $artigo->id]) ?>" class="table-striped">
 		<thead class="thead-light">
 			<tr>
+				<th data-field="previa" data-width="50px" data-align="center" data-formatter="fmtListagemFotografiasPrevia"><?= h(__('Prévia')) ?></th>
 				<th data-field="nome_arquivo" data-escape="true"><?= h(__('Arquivo')) ?></th>
 				<th data-field="acoes" data-width="100px" data-align="center" data-formatter="fmtListagemFotografiasAcoes"><?= h(__('Ações')) ?></th>
 			</tr>
 		</thead>
 	</table>
-	<input type = "button" value = "AJAX" id= "btnAJAX">
+	
 	<script>
 	
 	function cmdListagemFotografiasAcaoCima(id){
@@ -117,6 +117,8 @@
 		})
 	}
 	
+	
+	
 	$('#btnAJAX').click(function(){
 		$.ajax({
 			url: '<?= $this->Html->Url->build(['action' => 'fotografiaIndex']) ?>/<?= $artigo->id ?>',
@@ -125,5 +127,43 @@
 			$('#divAJAX').html(response);
 		})
 	});
+	
+	$(function () {
+			$('#uplFotografia').fileupload({
+				url: '<?= $this->Html->Url->build(['action' => 'fotografiaAdd', $artigo->id]) ?>',
+				dataType: 'json',
+				headers: { 'X-CSRF-Token': <?= json_encode($this->request->getParam('_csrfToken')) ?> },
+				done: function (e, data) {
+					if (!data.result.success) {
+						$('#divProgress .progress-bar').removeClass('bg-success bg-warning bg-danger').addClass('bg-warning');
+					}
+				},
+				start: function () {
+					$('#divProgress .progress-bar').removeClass('bg-success bg-warning bg-danger').addClass('bg-success');
+					$('#divProgress .progress-bar').show();
+				},
+				progressall: function (e, data) {
+					$('#divProgress .progress-bar').css('width', parseInt(data.loaded / data.total * 100, 10) + '%');
+				},
+				stop: function (e, data) {
+					$('#tblListagemFotografias').bootstrapTable('refresh', {silent: true});
+					$('#divProgress .progress-bar').hide();
+				},
+				fail: function (e, data) {
+					$('#divProgress .progress-bar').removeClass('bg-success bg-warning bg-danger').addClass('bg-danger');
+					$('#tblListagemFotografias').bootstrapTable('refresh', {silent: true});
+				}
+			});
+		});
+	
 	</script>
+	<div class="row justify-content-center">
+		<div id="divProgress" class="progress d-none">
+			<div class="progress-bar bg-success" role="progressbar"></div>
+		</div>
+		<span class="btn btn-success fileinput-button float-none">
+			<span><?= __('Adicionar fotografias') ?></span>
+			<input id="uplFotografia" type="file" name="fotografia" multiple>
+		</span>
+	</div>
 </div>

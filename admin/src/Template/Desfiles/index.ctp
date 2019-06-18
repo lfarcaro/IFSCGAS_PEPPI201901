@@ -4,16 +4,10 @@
  * @var \App\Model\Entity\Desfile[]|\Cake\Collection\CollectionInterface $desfiles
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Desfile'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Desfile Fotografias'), ['controller' => 'DesfileFotografias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Desfile Fotografia'), ['controller' => 'DesfileFotografias', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="desfiles index large-9 medium-8 columns content">
-    <h3><?= __('Desfiles') ?></h3>
+    <h3><?= __('Desfiles') ?>
+        <?= $this->Html->link(__('New desfiles'), ['action' => 'add'], ['class' => 'btn btn-success float-right']) ?>
+    </h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

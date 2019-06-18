@@ -81,6 +81,7 @@ class AppController extends Controller
 		'Artigos/add',
 		'Artigos/delete',
 		'Artigos/fotografiaIndex',
+		'Artigos/fotografiaAdd',
 		'Artigos/fotografiaCima',
 		'Artigos/fotografiaBaixo',
 		'Artigos/fotografiaExcluir',
@@ -109,6 +110,7 @@ class AppController extends Controller
 		'Artigos/add',
 		'Artigos/delete',
 		'Artigos/fotografiaIndex',
+		'Artigos/fotografiaAdd',
 		'Artigos/fotografiaCima',
 		'Artigos/fotografiaBaixo',
 		'Artigos/fotografiaExcluir'

@@ -4,14 +4,6 @@
  * @var \App\Model\Entity\Desfile $desfile
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Desfiles'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Desfile Fotografias'), ['controller' => 'DesfileFotografias', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Desfile Fotografia'), ['controller' => 'DesfileFotografias', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
 <div class="desfiles form large-9 medium-8 columns content">
     <?= $this->Form->create($desfile, ['type' => 'file']) ?>
     <fieldset>
