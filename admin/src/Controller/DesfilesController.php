@@ -147,11 +147,10 @@ class DesfilesController extends AppController
 
     }
 
-}
 /*
 *delete method
 */
-public function fotografiaExcluir($id = null)
+	public function fotografiaExcluir($id = null)
 	{
 		$this->request->allowMethod(['ajax']);
 		$this->loadModel('DesfileFotografias');
@@ -262,5 +261,5 @@ public function fotografiaExcluir($id = null)
 		$this->set('result', compact('success', 'message'));
 		$this->render('ajax');
 	}
-
+}
     
