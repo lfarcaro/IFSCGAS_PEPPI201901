@@ -43,7 +43,7 @@
     <?= $this->Form->end() ?>
     <hr>
 
-    <script>
+     <script>
         function fmtListagemFotografiasAcoes (value, row, index) {
             return [
                 '<img src="<?= $this->Url->image('up.png') ?>" onclick="cmdListagemFotografiasAcaoCima(' + row.id + ')" style="cursor: pointer">',
@@ -51,6 +51,11 @@
                 '<img src="<?= $this->Url->image('down.png') ?>" onclick="cmdListagemFotografiasAcaoBaixo(' + row.id + ')" style="cursor: pointer">',
                 '&nbsp;',
                 '<img src="<?= $this->Url->image('delete.png') ?>" onclick="cmdListagemFotografiasAcaoExcluir(' + row.id + ')" style="cursor: pointer">'
+            ].join('');
+        }
+        function fmtListagemFotografiasPrevia (value, row, index) {
+            return [
+                '<img src="<?= $caminhoFotografias ?>' + row.caminho_arquivo + ' " style="max-width: 30px; max-height: 30px">',
             ].join('');
         }
     </script>
@@ -63,16 +68,97 @@
             </tr>
         </thead>
     </table>
-    <div id="divAJAX"></div>
-    <input type="button"  value= "AJAX" id="btnAJAX">
-    <script >
-        $('#btnAJAX').click(function(){
-            $.ajax({
-                url: '<?= $this->Html->Url->build(['action'=> 'fotografiaIndex']) ?>/<?=$desfile->id ?>',
-                dataType:'json'
-            }).done(function(response){
-            alert(response);
+
+    <script>
+    
+    function cmdListagemFotografiasAcaoCima(id){
+        $.ajax({
+            url: '<?= $this->Html->Url->build(['action' => 'fotografiaCima']) ?>/'+ id,
+            dataType: 'json'
+        }).done(function(response){
+            if(!response.success){
+                alert(response.message);
+            }
+            $('#tblListagemFotografias').bootstrapTable('refresh', {silent:true});
+        })
+    }
+    
+    function cmdListagemFotografiasAcaoBaixo(id){
+        $.ajax({
+            url: '<?= $this->Html->Url->build(['action' => 'fotografiaBaixo']) ?>/'+ id,
+            dataType: 'json'
+        }).done(function(response){
+            if(!response.success){
+                alert(response.message);
+            }
+            $('#tblListagemFotografias').bootstrapTable('refresh', {silent:true});
+        })
+    }
+    
+    function cmdListagemFotografiasAcaoExcluir(id){
+        if(!confirm(<?= json_encode(__('Deseja realmente excluir a fotografia?')) ?>)){
+            return;
+        }
+        $.ajax({
+            url: '<?= $this->Html->Url->build(['action' => 'fotografiaExcluir']) ?>/'+ id,
+            dataType: 'json'
+        }).done(function(response){
+            if(!response.success){
+                alert(response.message);
+            }
+            $('#tblListagemFotografias').bootstrapTable('refresh', {silent:true});
+        })
+    }
+    
+    
+    
+    $('#btnAJAX').click(function(){
+        $.ajax({
+            url: '<?= $this->Html->Url->build(['action' => 'fotografiaIndex']) ?>/<?= $desfile->id ?>',
+            dataType: 'json'
+        }).done(function(response){
+            $('#divAJAX').html(response);
+        })
+    });
+    
+    $(function () {
+            $('#uplFotografia').fileupload({
+                url: '<?= $this->Html->Url->build(['action' => 'fotografiaAdd', $desfile->id]) ?>',
+                dataType: 'json',
+                headers: { 'X-CSRF-Token': <?= json_encode($this->request->getParam('_csrfToken')) ?> },
+                done: function (e, data) {
+                    if (!data.result.success) {
+                        $('#divProgress .progress-bar').removeClass('bg-success bg-warning bg-danger').addClass('bg-warning');
+                    }
+                },
+                start: function () {
+                    $('#divProgress .progress-bar').removeClass('bg-success bg-warning bg-danger').addClass('bg-success');
+                    $('#divProgress .progress-bar').show();
+                },
+                progressall: function (e, data) {
+                    $('#divProgress .progress-bar').css('width', parseInt(data.loaded / data.total * 100, 10) + '%');
+                },
+                stop: function (e, data) {
+                    $('#tblListagemFotografias').bootstrapTable('refresh', {silent: true});
+                    $('#divProgress .progress-bar').hide();
+                },
+                fail: function (e, data) {
+                    $('#divProgress .progress-bar').removeClass('bg-success bg-warning bg-danger').addClass('bg-danger');
+                    $('#tblListagemFotografias').bootstrapTable('refresh', {silent: true});
+                }
             });
         });
+    
     </script>
+
+    <div class="row justify-content-center">
+        <div id="divProgress" class="progress d-none">
+            <div class="progress-bar bg-success" role="progressbar"></div>
+        </div>
+        <span class="btn btn-success fileinput-button float-none">
+            <span><?= __('Adicionar fotografias') ?></span>
+            <input id="uplFotografia" type="file" name="fotografia" multiple>
+        </span>
+    </div>
+   
 </div>
