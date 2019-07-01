@@ -17,7 +17,7 @@
                 <th scope="col"><?= $this->Paginator->sort('datainicio') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('datatermino') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('descricao_breve') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('caminho_capa') ?></th>
+            
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -30,7 +30,6 @@
                 <td><?= h($projeto->datainicio) ?></td>
                 <td><?= h($projeto->datatermino) ?></td>
                 <td><?= h($projeto->descricao_breve) ?></td>
-                <td><?= h($projeto->caminho_capa) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $projeto->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $projeto->id], ['confirm' => __('Are you sure you want to delete # {0}?', $projeto->id)]) ?>
