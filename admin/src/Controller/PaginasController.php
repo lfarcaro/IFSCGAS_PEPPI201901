@@ -25,22 +25,6 @@ class PaginasController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Pagina id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $pagina = $this->Paginas->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('pagina', $pagina);
-    }
-
-    /**
      * Edit method
      *
      * @param string|null $id Pagina id.
