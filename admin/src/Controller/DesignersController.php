@@ -84,6 +84,15 @@ class DesignersController extends AppController
         $designer = $this->Designers->get($id, [
             'contain' => []
         ]);
+
+		$usuario = $this->Auth->user();
+		if($usuario['perfil'] == 'D'){
+			if($designer->id != $usuario['id']){
+				$this->Flash->error(__('O designer autenticado só pode editar seu próprio perfil'));
+				return $this->redirect(['action' => 'index']);
+			}
+		}
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $designer = $this->Designers->patchEntity($designer, $this->request->getData());
 
