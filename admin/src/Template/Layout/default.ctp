@@ -59,7 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <?= $this->Html->link(__('Logout'),['controller'=>'Authentication', 'Action'=> 'login']) ?>
+                <li><?= $this->Html->link($this->Html->image('logout.png') . "&nbsp;" . __('Logout'),['controller'=>'Authentication', 'action'=> 'login'], [escape => false]) ?></li>
             </ul>
         </div>
     </nav>
