@@ -826,7 +826,7 @@ msgstr ""
 #: Template/Paginas/edit.ctp:16
 #: Template/Paginas/view.ctp:10
 msgid "Edit Pagina"
-msgstr ""
+msgstr "Editar Pagina"
 
 #: Template/Paginas/index.ctp:13
 msgid "Paginas"
