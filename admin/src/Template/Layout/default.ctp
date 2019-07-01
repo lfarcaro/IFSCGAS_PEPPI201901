@@ -80,7 +80,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </ul>
 		<?php } else { ?>
 			<ul class="side-nav">
-				<li><?= $this->Html->link(__('Designers'), ['controller' => 'Designers', 'action' => 'index']) ?></li>
+				<li><?= $this->Html->link(__('Designers'), ['controller' => 'Designers', 'action' => 'edit',$usuario{'id'}]) ?></li>
 				<li><?= $this->Html->link(__('Artigos'), ['controller' => 'Artigos', 'action' => 'index']) ?></li>
 			</ul>
 		<?php } ?>

@@ -89,7 +89,7 @@ class DesignersController extends AppController
 		if($usuario['perfil'] == 'D'){
 			if($designer->id != $usuario['id']){
 				$this->Flash->error(__('O designer autenticado só pode editar seu próprio perfil'));
-				return $this->redirect(['action' => 'index']);
+				return $this->redirect(['controller' => 'Authentication', 'action' => 'login']);
 			}
 		}
 
@@ -120,7 +120,11 @@ class DesignersController extends AppController
 				$designer->atualizacao = time();
 				if ($this->Designers->save($designer)) {
 					$this->Flash->success(__('The designer has been saved.'));
-					return $this->redirect(['action' => 'index']);
+					if($usuario['perfil'] == 'A'){
+						return $this->redirect(['action' => 'index']);
+					}else{
+						return $this->redirect(['action' => 'principal']);
+					}
 				}
 				$this->Flash->error(__('The designer could not be saved. Please, try again.'));
 			}
