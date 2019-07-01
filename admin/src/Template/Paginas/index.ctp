@@ -5,9 +5,7 @@
  */
 ?>
 <div class="paginas index large-9 medium-8 columns content">
-    <h3><?= __('Paginas') ?>
-        <?= $this->Html->link(__('Nova página'), ['action' => 'add'], ['class' => 'btn btn-success float-right']) ?>
-    </h3>
+    <h3><?= __('Paginas') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -24,7 +22,6 @@
                 <td><?= h($pagina->identificador) ?></td>
                 <td><?= h($pagina->nome) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $pagina->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $pagina->id]) ?>
                 </td>
             </tr>
