@@ -59,7 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><?= $this->Html->link($this->Html->image('logout.png') . "&nbsp;" . __('Logout'),['controller'=>'Authentication', 'action'=> 'login'], [escape => false]) ?></li>
+                <li><?= $this->Html->link($this->Html->image('logout.png') . "&nbsp;" . __('Logout'),['controller'=>'Authentication', 'action'=> 'login']) ?></li>
             </ul>
         </div>
     </nav>
@@ -68,6 +68,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	
     <div class="container clearfix">
         <nav class="large-3 medium-4 columns" id="actions-sidebar">
+		<?php if($usuario['perfil'] == 'A'){ ?>
             <ul class="side-nav">
                 <li><?= $this->Html->link(__('Administradores'), ['controller' => 'Administradores', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Designers'), ['controller' => 'Designers', 'action' => 'index']) ?></li>
@@ -76,8 +77,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li><?= $this->Html->link(__('Projetos'), ['controller' => 'Projetos', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Desfiles'), ['controller' => 'Desfiles', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Páginas'), ['controller' => 'Paginas', 'action' => 'index']) ?></li>
-				
             </ul>
+		<?php } else { ?>
+			<ul class="side-nav">
+				<li><?= $this->Html->link(__('Designers'), ['controller' => 'Designers', 'action' => 'index']) ?></li>
+				<li><?= $this->Html->link(__('Artigos'), ['controller' => 'Artigos', 'action' => 'index']) ?></li>
+			</ul>
+		<?php } ?>
         </nav>
         <?= $this->fetch('content') ?>
 		
