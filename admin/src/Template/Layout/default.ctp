@@ -59,19 +59,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
+                <?= $this->Html->link(__('Logout'),['controller'=>'Authentication', 'Action'=> 'login']) ?>
             </ul>
         </div>
     </nav>
     <?= $this->Flash->render() ?>
 	<h2>Bem-vind@ <?= h($usuario['nome']) ?></h2>
-	<?= $this->Html->link(__('Logout'),['controller'=>'Authentication', 'Action'=> 'login']) ?>
 	
     <div class="container clearfix">
         <nav class="large-3 medium-4 columns" id="actions-sidebar">
             <ul class="side-nav">
-                <li class="heading"><?= __('Actions') ?></li>
                 <li><?= $this->Html->link(__('Administradores'), ['controller' => 'Administradores', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Designers'), ['controller' => 'Designers', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Categorias'), ['controller' => 'Categorias', 'action' => 'index']) ?></li>
@@ -79,11 +76,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li><?= $this->Html->link(__('Projetos'), ['controller' => 'Projetos', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Desfiles'), ['controller' => 'Desfiles', 'action' => 'index']) ?></li>
                 <li><?= $this->Html->link(__('Páginas'), ['controller' => 'Paginas', 'action' => 'index']) ?></li>
+				
             </ul>
         </nav>
         <?= $this->fetch('content') ?>
+		
     </div>
+	
     <footer>
+		
     </footer>
 </body>
 </html>

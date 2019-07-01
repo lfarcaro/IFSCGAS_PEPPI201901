@@ -44,8 +44,6 @@
 		</thead>
 	</table>
 	
-	<div id="divAJAX"></div>
-	<input type="button" value="AJAX" id="btnAJAX">
 	<script>
 	$('#btnAJAX').click(function(){
 		$.ajax({
