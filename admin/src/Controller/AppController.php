@@ -148,7 +148,9 @@ class AppController extends Controller
                 $this->Flash->error(__("The authenticated user's profile is not supported."));
                 return $this->redirect(['controller' => 'Authentication', 'action' => 'login']);
             }
-        } else if ($controlleraction !== 'Authentication/login') {
+        } else if ($controlleraction !== 'Authentication/recuperarSenha') {
+			//Permite acesso à recuperação de Senha
+		} else if ($controlleraction !== 'Authentication/login') {
             return $this->redirect(['controller' => 'Authentication', 'action' => 'login']);
         }
     }

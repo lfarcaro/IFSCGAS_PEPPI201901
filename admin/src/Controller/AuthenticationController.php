@@ -38,4 +38,7 @@ class AuthenticationController extends AppController
 		$this->render('login','login');
     }
 	
+	public function recuperarSenha($email = null){	}
+	
+	
 }
